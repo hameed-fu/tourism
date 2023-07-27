@@ -9,7 +9,25 @@
 <body>
     <h1>Users</h1>
 
+
+    @if ($name)
+
+        {!! $name !!}
+        @else
+        No name
+    @endif
+
+    <hr>
+    {{ now() }} - {{  date('Y')  }}
+    <hr>
+
+    @foreach ($items as $key => $item )
+
+        <h2>{{ $item['name'] }} - {{ $item['price'] }}</h2>
+    @endforeach
+
     <a href="dashboard">Dashboard</a>
+
 
 </body>
 </html>

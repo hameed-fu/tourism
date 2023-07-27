@@ -27,6 +27,8 @@ Route::prefix('admin')->group(function() {
     Route::get('users',[AdminController::class,'users']);
     Route::get('user/{name}',[AdminController::class,'demo'])->name('user.name');
 
+    Route::resource('category', CategoryController::class);
+
 
 
 });
