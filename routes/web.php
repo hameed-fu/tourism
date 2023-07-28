@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SiteController;
 use App\Http\Controllers\AdminController;
 
 /*
@@ -14,9 +15,12 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/',[SiteController::class,'index']);
+Route::post('/category/save',[SiteController::class,'category_save'])->name('category_save');
 
 Route::prefix('admin')->group(function() {
     // Route::get('dashboard', function () {
