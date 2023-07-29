@@ -13,3 +13,10 @@ Task#3
 1. create category, items, posts table using migration command
 2. create models for each table and add atleast 10 records accordingly
 3. show these records on appropriate pages in table form
+
+Task#4
+1. create seperate page for each table in your existing project
+2. make a separate FORM for each table record
+3. apply appropriate validation on each FORM data
+4. Make Factories for each table and seed them in DB
+
