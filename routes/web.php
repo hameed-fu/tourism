@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,11 @@ use App\Http\Controllers\AdminController;
 //     return view('welcome');
 // });
 
-Route::get('/',[SiteController::class,'index']);
-Route::post('/category/save',[SiteController::class,'category_save'])->name('category_save');
+Route::get('/',[CategoryController::class,'index'])->name('category.index');
+Route::post('/category/save',[CategoryController::class,'store'])->name('category_save');
+Route::get('/category/{id}',[CategoryController::class,'destroy'])->name('category_delete');
+Route::get('/category/edit/{id}',[CategoryController::class,'edit'])->name('category.edit');
+Route::post('category/update',[SiteController::class,'update'])->name('cat.update');
 
 Route::prefix('admin')->group(function() {
     // Route::get('dashboard', function () {

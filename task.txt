@@ -20,3 +20,8 @@ Task#4
 3. apply appropriate validation on each FORM data
 4. Make Factories for each table and seed them in DB
 
+Task#5
+1. download an bootstrap admin panel from the internet
+2. embed/fit into your project
+3. make a master file and extens all other pages
+4. Set your all existing pages into this admin panel

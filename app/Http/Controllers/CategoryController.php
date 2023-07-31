@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Rules\Uppercase;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -11,7 +13,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        
+        // $categories = DB::table('categories')->orderBy('id','desc')->get();
+        $categories = Category::orderBy('id','desc')->get();
+        // $single = DB::table('categories')->where('id',4)->first();
+        // $single = DB::table('categories')->where('id',4)->value('id');
+        // $single = DB::table('categories')->find(4);
+        // dd($single);
+        return view('frontend.index',compact('categories'));
     }
 
     /**
@@ -27,7 +35,24 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->name;
+
+        $request->validate([
+            'name' => ['required','max:50','unique:categories', new Uppercase ],
+        ]);
+
+        // $validater = Validator::make($request->all(),[
+        //     'name' => 'required|max:50|unique:categories|alpha_num| new UpperCase()',
+        // ]);
+        if($validater->fails()){
+            return redirect()->back()->withErrors($validater)->withInput();
+        }
+        $category = Category::create([
+            'name'  => $name,
+            'status' => true
+        ]);
+
+        return redirect()->back()->with('success','Category added successfully');
     }
 
     /**
@@ -43,15 +68,19 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::find($id);
+        // $category = Category::where('id',$id)->first();
+        // dd($category);
+        return view('frontend.edit',compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($request->id);
+        dd($category);
     }
 
     /**
@@ -59,7 +88,10 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = Category::find($id)->delete();
+        // $category = Category::where('id',$id)->delete();
+        // $category->delete();
+        return redirect()->route('category.index')->with('success','Category deleted successfully');
     }
 
 }

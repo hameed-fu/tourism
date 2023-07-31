@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Models\Category;
+use App\Rules\Uppercase;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryRequest;
 use Illuminate\Support\Facades\Validator;
-use DB;
 
 class SiteController extends Controller
 {
@@ -22,13 +23,13 @@ class SiteController extends Controller
     public function category_save(Request $request){
         $name = $request->name;
 
-        // $request->validate([
-        //     'name' => 'required|max:50|unique:categories',
-        // ]);
-
-        $validater = Validator::make($request->all(),[
-            'name' => 'required|max:50|unique:categories|alpha_num',
+        $request->validate([
+            'name' => ['required','max:50','unique:categories', new Uppercase ],
         ]);
+
+        // $validater = Validator::make($request->all(),[
+        //     'name' => 'required|max:50|unique:categories|alpha_num| new UpperCase()',
+        // ]);
         if($validater->fails()){
             return redirect()->back()->withErrors($validater)->withInput();
         }
@@ -38,5 +39,15 @@ class SiteController extends Controller
         ]);
 
         return redirect()->back()->with('success','Category added successfully');
+    }
+
+    public function update(Request $request)
+    {
+        $category = Category::find($request->id)->update([
+            'name' => $request->name
+        ]);
+        // $category->name = $request->name;
+        // $category->save();
+        return redirect()->route('category.index')->with('success','Category update successfully');
     }
 }
