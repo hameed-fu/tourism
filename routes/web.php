@@ -26,6 +26,8 @@ Route::get('/category/{id}',[CategoryController::class,'destroy'])->name('catego
 Route::get('/category/edit/{id}',[CategoryController::class,'edit'])->name('category.edit');
 Route::post('category/update',[SiteController::class,'update'])->name('cat.update');
 
+Route::post('post/save',[SiteController::class,'save_post'])->name('post.save');
+
 Route::prefix('admin')->group(function() {
     // Route::get('dashboard', function () {
     //     return view('backend.dashboard');

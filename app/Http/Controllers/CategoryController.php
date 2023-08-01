@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\Category;
 use App\Rules\Uppercase;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -12,14 +14,18 @@ class CategoryController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {;
+
         // $categories = DB::table('categories')->orderBy('id','desc')->get();
         $categories = Category::orderBy('id','desc')->get();
+
+        $posts = Post::with('category')->get();
+
         // $single = DB::table('categories')->where('id',4)->first();
         // $single = DB::table('categories')->where('id',4)->value('id');
         // $single = DB::table('categories')->find(4);
         // dd($single);
-        return view('frontend.index',compact('categories'));
+        return view('frontend.index',compact('posts','categories'));
     }
 
     /**

@@ -25,3 +25,9 @@ Task#5
 2. embed/fit into your project
 3. make a master file and extens all other pages
 4. Set your all existing pages into this admin panel
+
+Task#6
+1. set all the page links on left side in your project
+2. make relationship b/w categories and items and show them accordingly
+3. study models and relationships.
+4.

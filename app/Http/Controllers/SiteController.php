@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use App\Models\Post;
 use App\Models\Category;
 use App\Rules\Uppercase;
 use Illuminate\Http\Request;
@@ -49,5 +50,20 @@ class SiteController extends Controller
         // $category->name = $request->name;
         // $category->save();
         return redirect()->route('category.index')->with('success','Category update successfully');
+    }
+
+    public function save_post(Request $request){
+        $title = $request->title;
+        $category_id = $request->category_id;
+
+        $request->validate([
+            'title' => ['required','max:50' ],
+        ]);
+        $category = Post::create([
+            'title'  => $title,
+            'category_id' => $category_id
+        ]);
+
+        return redirect()->back()->with('success','Post added successfully');
     }
 }
