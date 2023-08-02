@@ -30,4 +30,11 @@ Task#6
 1. set all the page links on left side in your project
 2. make relationship b/w categories and items and show them accordingly
 3. study models and relationships.
-4.
+
+Task#7
+1. create a fresh project for blogging
+2. create categories, tags, users, and blogs
+2. add login functionality to your project - use laravel breeze
+3. add blogs in backend and show them on frontend
+4. on each blog show  categories
+5. make a dropdwon on frontend, when user select the category, it will show the related all blogs
