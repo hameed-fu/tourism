@@ -38,3 +38,12 @@ Task#7
 3. add blogs in backend and show them on frontend
 4. on each blog show  categories
 5. make a dropdwon on frontend, when user select the category, it will show the related all blogs
+
+Task#8
+1. create the discussed tables and there fields/attributes. make constrains for each forieng key
+2. create Controllers, Moldes, and migrations for each table
+3. Create seeders for the following
+    3.1. Users
+    3.2. Hotels
+    3.3. Provinces, Citeis and Location
+    3.4. Trip types
