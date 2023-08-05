@@ -1,9 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SiteController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\TripController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\HotelController;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\ProvinceController;
+use App\Http\Controllers\TripTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,31 +20,21 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('backend.layout.index');
+});
+Route::prefix('admin')->group(function () {
+    Route::get('user',[UserController::class,'User' ])->name('users.index');
+    Route::get('user/delete/{id}',[UserController::class,'delete' ])->name('user.delete');
 
-Route::get('/',[CategoryController::class,'index'])->name('category.index');
-Route::post('/category/save',[CategoryController::class,'store'])->name('category_save');
-Route::get('/category/{id}',[CategoryController::class,'destroy'])->name('category_delete');
-Route::get('/category/edit/{id}',[CategoryController::class,'edit'])->name('category.edit');
-Route::post('category/update',[SiteController::class,'update'])->name('cat.update');
+    Route::get('province',[ProvinceController::class,'Province' ])->name('provinces.index');
+    Route::get('province/create',[ProvinceController::class,'create' ])->name('province.create');
+    Route::post('province/add',[ProvinceController::class,'store' ])->name('province.add');
 
-Route::post('post/save',[SiteController::class,'save_post'])->name('post.save');
-
-Route::prefix('admin')->group(function() {
-    // Route::get('dashboard', function () {
-    //     return view('backend.dashboard');
-    // });
-
-    Route::get('dashboard',[AdminController::class,'dashboard']);
-    Route::get('users',[AdminController::class,'users']);
-    Route::get('user/{name}',[AdminController::class,'demo'])->name('user.name');
-
-    Route::resource('category', CategoryController::class);
-
-
+    Route::get('city',[CityController::class,'City' ])->name('cities.index');
+    Route::get('location',[LocationController::class,'Location' ])->name('locations.index');
+    Route::get('hotel',[HotelController::class,'Hotel' ])->name('hotels.index');
+    Route::get('trip',[TripController::class,'Trip' ])->name('trips.index');
+    Route::get('triptype',[TripTypeController::class,'TripType' ])->name('triptypes.index');
 
 });
-
-
