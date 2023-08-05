@@ -47,3 +47,7 @@ Task#8
     3.2. Hotels
     3.3. Provinces, Citeis and Location
     3.4. Trip types
+
+Task#9
+1. Create all the form for all the entities
+2. Perform CRUD for all
