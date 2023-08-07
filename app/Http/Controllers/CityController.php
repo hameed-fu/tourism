@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\Province;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class CityController extends Controller
 {
     public function City(){
-        $cities = DB::table('cities')->get();
+        $cities = City::get();
+
         return view('backend.cities.index',compact('cities'));
     }
 
@@ -19,16 +21,26 @@ class CityController extends Controller
     }
 
     public function create(){
-        return view('backend.cities.create');
+        $provinces = Province::get();
+        return view('backend.cities.create',compact('provinces'));
     }
 
     public function store(Request $request){
         $name = $request->name;
-        $img = $request->img;
+        $province_id = $request->province_id;
+
+
+        if ($request->hasFile('img')) {
+            $img = $request->file('img');
+            $file_name = $request->img->getClientOriginalName();
+            $request->img->move(public_path('uploads/cities'), $file_name);
+        }
+
         City::create([
             'city_name' => $name,
-            'city_img' => $img,
-    ]);
+            'city_img' => $file_name,
+            'province_id' => $province_id,
+        ]);
         return redirect()->route('cities.index')->with('success','city added successfully');
     }
 }

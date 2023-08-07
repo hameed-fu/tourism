@@ -27,20 +27,22 @@
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th scope="col">User Id</th>
-                                    <th scope="col">User Name</th>
-                                    <th scope="col">User Email</th>
-                                    <th scope="col">User Image</th>
-                                    <th scope="col">User Address</th>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Role</th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Address</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($users as $user)
+                                @foreach ($users as $key => $user)
                                     <tr>
-                                        <td>{{ $user->id }}</td>
-                                        <td>{{ $user->user_name }}</td>
-                                        <td>{{ $user->user_email }}</td>
+                                        <td>{{ $key+1 }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->user_role }}</td>
                                         <td>{{ $user->user_img }}</td>
                                         <td>{{ $user->user_address }}</td>
                                         <td>

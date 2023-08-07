@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -33,10 +34,10 @@ class UserController extends Controller
         $role = $request->role;
 
         User::create([
-            'user_name' => $name,
-            'user_email' => $email,
+            'name' => $name,
+            'email' => $email,
             'user_img' => $img,
-            'user_password' => $password,
+            'password' => Hash::make($password),
             'gender' => $gender,
             'user_contact' => $contact,
             'user_address' => $address,

@@ -27,9 +27,9 @@
                         <thead>
                             <tr>
                                 <th scope="col">City Id</th>
-                                <th scope="col">City Name</th>
                                 <th scope="col">City Image</th>
-                                <th scope="col">Province Id</th>
+                                <th scope="col">City Name</th>
+                                <th scope="col">Province</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -37,9 +37,10 @@
                             @foreach ($cities as $city)
                             <tr>
                                 <td>{{$city->id}}</td>
+                                <td><img width="150" src="{{ asset('uploads/cities').'/'.$city->city_img }}" alt=""></td>
                                 <td>{{$city->city_name}}</td>
-                                <td>{{$city->city_img}}</td>
-                                <td></td>
+
+                                <td>{{ $city->province->province_name }}</td>
                                 <td>
                                     <a href="" class="btn btn-sm btn-warning">Edit</a>
                                     <a onclick="return confirm('are you sure?')" href="{{ route('city.delete',$city->id) }}" class="btn btn-sm btn-danger">Delete</a>

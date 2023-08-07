@@ -10,7 +10,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form action="{{ route('province.add') }}" method="post">
+                        <form action="{{ route('province.add') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="">Name</label>
@@ -18,7 +18,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Img</label>
-                                <input type="text" class="form-control" name="img">
+                                <input type="file" class="form-control" name="img">
                             </div>
                             <button class="btn btn-primary">Save</button>
                         </form>
