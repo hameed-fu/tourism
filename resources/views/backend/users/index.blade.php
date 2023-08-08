@@ -29,11 +29,11 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
+                                    <th scope="col">Image</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Role</th>
-                                    <th scope="col">Image</th>
                                     <th scope="col">Address</th>
-                                    <th>Action</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,9 +41,9 @@
                                     <tr>
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ $user->name }}</td>
+                                        <td><img width="150" src="{{ asset('uploads/users').'/'.$user->user_img }}" alt=""></td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->user_role }}</td>
-                                        <td>{{ $user->user_img }}</td>
                                         <td>{{ $user->user_address }}</td>
                                         <td>
                                             <a href="" class="btn btn-sm btn-warning">Edit</a>

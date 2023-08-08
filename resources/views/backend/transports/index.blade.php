@@ -26,9 +26,9 @@
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">Transport Id</th>
-                                <th scope="col">Transport Name</th>
-                                <th scope="col">Transport Model</th>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Model</th>
                                 <th scope="col">N0 Seats</th>
                             </tr>
                         </thead>

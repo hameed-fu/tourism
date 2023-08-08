@@ -26,9 +26,9 @@
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">Trip Type Id</th>
-                                <th scope="col">Trip Type Name</th>
-                                <th scope="col">Trip Type Status</th>
+                                <th scope="col">#</th>
+                                <th scope="col"> Name</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -40,7 +40,7 @@
                                 <td>{{$triptype->triptype_status}}</td>
                                 <td>
                                     <a href="" class="btn btn-sm btn-warning">Edit</a>
-                                    <a onclick="return confirm('are you sure?')" href="{{ route('province.delete',$province->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                                    <a onclick="return confirm('are you sure?')" href="{{ route('triptype.delete',$triptype->id) }}" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
                             @endforeach

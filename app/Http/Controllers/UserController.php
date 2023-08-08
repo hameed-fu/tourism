@@ -25,24 +25,33 @@ class UserController extends Controller
 
     public function store(Request $request){
         $name = $request->name;
-        $email = $request->email;
-        $img = $request->img;
-        $password = $request->password;
-        $gender = $request->gender;
-        $contact = $request->contact;
-        $address = $request->address;
-        $role = $request->role;
+        $file_name = null; // Initialize the variable outside the if condition
 
-        User::create([
-            'name' => $name,
-            'email' => $email,
-            'user_img' => $img,
-            'password' => Hash::make($password),
-            'gender' => $gender,
-            'user_contact' => $contact,
-            'user_address' => $address,
-            'user_role' => $role,
-    ]);
-    return redirect()->route('users.index')->with('success','user added successfully');
-   }
+        if ($request->hasFile('img')) {
+        $img = $request->file('img');
+        $file_name = $img->getClientOriginalName(); // Use $img instead of $request->img
+        $img->move(public_path('uploads/users'), $file_name);
+      }
+
+$email = $request->email;
+$password = $request->password;
+$gender = $request->gender;
+$contact = $request->contact;
+$address = $request->address;
+$role = $request->role;
+
+User::create([
+    'name' => $name,
+    'email' => $email,
+    'user_img' => $file_name, // Assign the file name here
+    'password' => Hash::make($password),
+    'gender' => $gender,
+    'user_contact' => $contact,
+    'user_address' => $address,
+    'user_role' => $role,
+]);
+
+return redirect()->route('users.index')->with('success', 'User added successfully');
+
+    }
 }

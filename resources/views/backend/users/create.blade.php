@@ -10,7 +10,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form action="{{ route('user.add') }}" method="post">
+                        <form action="{{ route('user.add') }}" method="post"  enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="">Name</label>
@@ -21,8 +21,8 @@
                                 <input type="email" class="form-control" name="email">
                             </div>
                             <div class="form-group">
-                                <label for="">Img</label>
-                                <input type="text" class="form-control" name="img">
+                                <label for="">Image</label>
+                                <input type="file" class="form-control" name="img">
                             </div>
                             <div class="form-group">
                                 <label for="">Password</label>

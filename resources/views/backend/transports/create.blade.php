@@ -10,7 +10,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form action="#" method="post">
+                        <form action="{{ route('transport.add') }}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label for="">Transport Name</label>

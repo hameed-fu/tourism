@@ -26,12 +26,12 @@
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">Booking Id</th>
+                                <th scope="col">#</th>
                                 <th scope="col">Start Date</th>
                                 <th scope="col">End Date</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">User ID</th>
-                                <th scope="col">Room Type ID</th>
+                                <th scope="col">User </th>
+                                <th scope="col">Room Type</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,6 +41,8 @@
                                 <td>{{$booking->start_date}}</td>
                                 <td>{{$booking->end_date}}</td>
                                 <td>{{$booking->status}}</td>
+                                <td>{{$booking->user->name}}</td>
+                                <td>{{$booking->roomtype->room_type}}</td>
                             </tr>
                             @endforeach
                         </tbody>

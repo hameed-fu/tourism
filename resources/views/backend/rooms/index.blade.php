@@ -26,13 +26,13 @@
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">Room Id</th>
+                                <th scope="col">#</th>
                                 <th scope="col">Room N0</th>
                                 <th scope="col">Occupancy</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Avaialability</th>
                                 <th scope="col">Room Type Id</th>
-                                <th scope="col">Hotel Id</th>
+                                <th scope="col">Hotel</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,7 +43,8 @@
                                 <td>{{$room->occupancy}}</td>
                                 <td>{{$room->room_description}}</td>
                                 <td>{{$room->availability}}</td>
-
+                                <td>{{ $room->roomtype_id }}</td>
+                                <td>{{ $room->hotel->hotel_name }}</td>
                             </tr>
                             @endforeach
                         </tbody>

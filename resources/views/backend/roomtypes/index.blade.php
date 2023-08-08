@@ -26,8 +26,8 @@
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">Room Id</th>
-                                <th scope="col">Room Type</th>
+                                <th scope="col">#</th>
+                                <th scope="col">Type</th>
                             </tr>
                         </thead>
                         <tbody>

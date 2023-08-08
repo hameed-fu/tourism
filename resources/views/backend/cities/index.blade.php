@@ -26,9 +26,9 @@
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">City Id</th>
-                                <th scope="col">City Image</th>
-                                <th scope="col">City Name</th>
+                                <th scope="col">#</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Name</th>
                                 <th scope="col">Province</th>
                                 <th scope="col">Action</th>
                             </tr>

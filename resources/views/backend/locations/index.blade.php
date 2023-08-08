@@ -26,11 +26,11 @@
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">Location Id</th>
-                                <th scope="col">Location Name</th>
-                                <th scope="col">Location Description</th>
-                                <th scope="col">Location Image</th>
-                                <th scope="col">City Id</th>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">City</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -39,9 +39,9 @@
                             <tr>
                                 <td>{{$location->id}}</td>
                                 <td>{{$location->location_name}}</td>
+                                <td><img width="150" src="{{ asset('uploads/locations').'/'.$location->location_img }}" alt=""></td>
                                 <td>{{$location->location_description}}</td>
-                                <td>{{$location->location_img}}</td>
-                                <td></td>
+                                <td>{{ $location->city->city_name }}</td>
                                 <td>
                                     <a href="" class="btn btn-sm btn-warning">Edit</a>
                                     <a onclick="return confirm('are you sure?')" href="{{ route('location.delete',$location->id) }}" class="btn btn-sm btn-danger">Delete</a>

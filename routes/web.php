@@ -67,6 +67,7 @@ Route::prefix('admin')->group(function () {
 
 
     Route::get('triptype',[TripTypeController::class,'TripType' ])->name('triptypes.index');
+    Route::get('triptype/delete/{id}',[TripTypeController::class,'delete' ])->name('triptype.delete');
     Route::get('triptype/create',[TripTypeController::class,'create' ])->name('triptype.create');
     Route::post('triptype/add',[TripTypeController::class,'store' ])->name('triptype.add');
 

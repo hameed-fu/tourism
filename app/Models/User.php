@@ -28,6 +28,15 @@ class User extends Authenticatable
         'user_role'
     ];
 
+    public function booking()
+    {
+        return $this->hasOne(Booking::class);
+    }
+
+    public function review()
+    {
+        return $this->hasOne(Review::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

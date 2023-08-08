@@ -2,10 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Trip;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Transport extends Model
 {
     use HasFactory;
+    protected $fillable = ['transport_name','transport_model','no_seats'];
+
+    public function trips()
+    {
+        return $this->hasOne(Trip::class);
+    }
 }

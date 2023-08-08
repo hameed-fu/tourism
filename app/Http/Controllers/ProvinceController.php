@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Trip;
 use App\Models\Province;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -9,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class ProvinceController extends Controller
 {
     public function Province(){
-        $provinces = DB::table('provinces')->get();
+        $provinces = Province::get();
         return view('backend.provinces.index',compact('provinces'));
     }
 

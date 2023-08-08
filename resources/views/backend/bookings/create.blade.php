@@ -10,7 +10,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form action="#" method="post">
+                        <form action="{{ route('booking.add') }}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label for="">Start Date</label>
@@ -23,6 +23,24 @@
                             <div class="form-group">
                                 <label for="">Status</label>
                                 <input type="text" class="form-control" name="status">
+                            </div>
+                            <div class="form-group">
+                                <label for="">User</label>
+                                <select name="user_id" id="" class="form-control">
+                                    <option value="">Please Select</option>
+                                    @foreach ($users as $user)
+                                        <option value="{{ $user->id }}">{{ $user->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Room Type</label>
+                                <select name="roomtype_id" id="" class="form-control">
+                                    <option value="">Please Select</option>
+                                    @foreach ($roomtypes as $roomtype)
+                                        <option value="{{ $roomtype->id }}">{{ $roomtype->room_type}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <button class="btn btn-primary">Save</button>
                         </form>

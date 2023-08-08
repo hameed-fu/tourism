@@ -26,11 +26,11 @@
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">Review Id</th>
+                                <th scope="col">#</th>
                                 <th scope="col">Rating</th>
-                                <th scope="col">Review Date</th>
-                                <th scope="col">User ID</th>
-                                <th scope="col">Trip ID</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">User</th>
+                                <th scope="col">Trip</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,6 +39,8 @@
                                 <td>{{$review->id}}</td>
                                 <td>{{$review->rating}}</td>
                                 <td>{{$review->review_date}}</td>
+                                <td>{{ $review->user->name }}</td>
+                                <td>{{ $review->trip->trip_name }}</td>
                             </tr>
                             @endforeach
                         </tbody>

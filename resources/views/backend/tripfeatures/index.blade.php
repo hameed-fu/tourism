@@ -26,9 +26,9 @@
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">Trip Feature Id</th>
-                                <th scope="col">Trip Day</th>
-                                <th scope="col">Trip Itinary</th>
+                                <th scope="col">#</th>
+                                <th scope="col">Day</th>
+                                <th scope="col">Itinary</th>
                                 <th scope="col">Night Stay</th>
                                 <th scope="col">Spot</th>
                             </tr>

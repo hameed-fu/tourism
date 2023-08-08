@@ -2,10 +2,38 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\City;
+use App\Models\TripType;
+use App\Models\Transport;
+use App\Models\TripFeature;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Trip extends Model
 {
     use HasFactory;
+    protected $fillable = ['trip_name','start_date','end_date','city_id','triptype_id','transportation_id','tripfeature_id','status','trip_description'];
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    public function triptype()
+    {
+        return $this->belongsTo(TripType::class);
+    }
+
+    public function transport()
+    {
+        return $this->belongsTo(Transport::class);
+    }
+
+    public function tripfeature()
+    {
+        return $this->belongsTo(TripFeature::class);
+    }
+    public function review(){
+        return $this->hasMany(Review::class);
+    }
 }
