@@ -55,3 +55,7 @@ Task#9
 Task#10
 1. Add file upload functionality in the project
 2. Add dropdwon for all parent entities in child table  in  each Form if any
+
+Task#11
+1. Update all the entities file uploads
+2. Update all the entities dependentt dropdwon
