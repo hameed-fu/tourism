@@ -26,7 +26,7 @@ class Trip extends Model
 
     public function transport()
     {
-        return $this->belongsTo(Transport::class);
+        return $this->belongsTo(Transport::class,'transportation_id','id');
     }
 
     public function tripfeature()

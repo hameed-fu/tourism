@@ -45,6 +45,8 @@ Route::prefix('admin')->group(function () {
     Route::get('city/delete/{id}',[CityController::class,'delete' ])->name('city.delete');
     Route::get('city/create',[CityController::class,'create' ])->name('city.create');
     Route::post('city/add',[CityController::class,'store' ])->name('city.add');
+    Route::get('city/edit/{id}',[CityController::class,'edit' ])->name('city.edit');
+    Route::post('city/update',[CityController::class,'update' ])->name('city.update');
 
 
 

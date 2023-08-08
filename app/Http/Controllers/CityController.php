@@ -43,4 +43,32 @@ class CityController extends Controller
         ]);
         return redirect()->route('cities.index')->with('success','city added successfully');
     }
+
+    public function edit($id){
+        $city = City::with('province')->find($id);
+        $provinces = Province::get();
+        return view('backend.cities.edit',compact('city','provinces'));
+    }
+
+    public function update(Request $request){
+        $name = $request->name;
+        $province_id = $request->province_id;
+
+        $city = City::find($request->id);
+
+        if ($request->hasFile('img')) {
+            $img = $request->file('img');
+            $file_name = $request->img->getClientOriginalName();
+            $request->img->move(public_path('uploads/cities'), $file_name);
+        }else{
+            $file_name = $city->city_img;
+        }
+
+        City::where('id',$request->id)->update([
+            'city_name' => $name,
+            'city_img' => $file_name,
+            'province_id' => $province_id,
+        ]);
+        return redirect()->route('cities.index')->with('success','City updated successfully');
+    }
 }

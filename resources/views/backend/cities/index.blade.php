@@ -42,7 +42,7 @@
 
                                 <td>{{ $city->province->province_name }}</td>
                                 <td>
-                                    <a href="" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{ route('city.edit',$city->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                     <a onclick="return confirm('are you sure?')" href="{{ route('city.delete',$city->id) }}" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>

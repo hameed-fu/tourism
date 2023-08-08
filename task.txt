@@ -51,3 +51,7 @@ Task#8
 Task#9
 1. Create all the form for all the entities
 2. Perform CRUD for all
+
+Task#10
+1. Add file upload functionality in the project
+2. Add dropdwon for all parent entities in child table  in  each Form if any

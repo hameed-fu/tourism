@@ -11,7 +11,7 @@ class Transport extends Model
     use HasFactory;
     protected $fillable = ['transport_name','transport_model','no_seats'];
 
-    public function trips()
+    public function trip()
     {
         return $this->hasOne(Trip::class);
     }

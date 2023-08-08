@@ -14,7 +14,8 @@ use App\Http\Controllers\Controller;
 class TripController extends Controller
 {
     public function Trip(){
-        $trips =Trip::get();
+        $trips = Trip::with('transport')->get();
+        // dd($trips);
         return view('backend.trips.index',compact('trips'));
     }
 
