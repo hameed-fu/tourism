@@ -59,3 +59,5 @@ Task#10
 Task#11
 1. Update all the entities file uploads
 2. Update all the entities dependentt dropdwon
+3. Remove the feature id from trips.
+4. put the trip id in trip feature table
