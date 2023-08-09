@@ -66,4 +66,4 @@ Task#12
 1. Remove status form trip type
 2. update the trip with featues
 3. Check everything in backend and verify if its working
-
+//
