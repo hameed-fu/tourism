@@ -31,8 +31,9 @@
                                 <th scope="col">Occupancy</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Avaialability</th>
-                                <th scope="col">Room Type Id</th>
+                                <th scope="col">Room Type</th>
                                 <th scope="col">Hotel</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,8 +44,12 @@
                                 <td>{{$room->occupancy}}</td>
                                 <td>{{$room->room_description}}</td>
                                 <td>{{$room->availability}}</td>
-                                <td>{{ $room->roomtype_id }}</td>
+                                <td>{{ $room->roomtype->room_type }}</td>
                                 <td>{{ $room->hotel->hotel_name }}</td>
+                                <td>
+                                    <a href="{{ route('room.edit',$room->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a onclick="return alert('Do you want to delete room')" href="{{ route('room.delete',$room->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

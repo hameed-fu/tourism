@@ -29,7 +29,7 @@
 
               </li>
             <li class="nav-item">
-                  <a href="{{ route('users.index')}}" class="nav-link {{ request()->is('admin/user') ? 'active' :'' }}">
+                  <a href="{{ route('users.index')}}" class="nav-link {{ request()->is('admin/user') || request()->is('admin/user/*')  ? 'active' :'' }}">
                     <i class="nav-icon fa fa-table"></i>
                     <p>Users</p>
                   </a>

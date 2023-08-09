@@ -61,3 +61,8 @@ Task#11
 2. Update all the entities dependentt dropdwon
 3. Remove the feature id from trips.
 4. put the trip id in trip feature table
+
+Task#12
+1. Remove status form trip type
+2. update the trip with featues
+3. Check everything in backend and verify if its working

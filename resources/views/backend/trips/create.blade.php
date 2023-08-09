@@ -1,6 +1,5 @@
 @extends('backend.layout.index')
 @section('content')
-
     <section class="content">
         <div class="row">
             <div class="col-12 mt-3">
@@ -24,29 +23,23 @@
                                 <label for="">End Date</label>
                                 <input type="date" class="form-control" name="enddate">
                             </div>
-                            <div class="form-group">
-                                <label for="">Status</label>
-                                <input type="text" class="form-control" name="status">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Description</label>
-                                <input type="text" class="form-control" name="description">
-                            </div>
+
+
                             <div class="form-group">
                                 <label for="">City</label>
                                 <select name="city_id" id="" class="form-control">
-                                    <option value="">Please Select</option>
+                                    <option value="">▽ Please Select</option>
                                     @foreach ($cities as $city)
-                                        <option value="{{ $city->id }}">{{ $city->city_name}}</option>
+                                        <option value="{{ $city->id }}">{{ $city->city_name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="">Trip Type</label>
                                 <select name="triptype_id" id="" class="form-control">
-                                    <option value="">Please Select</option>
+                                    <option value="">▽ Please Select</option>
                                     @foreach ($triptypes as $triptype)
-                                        <option value="{{ $triptype->id }}">{{ $triptype->triptype_name}}</option>
+                                        <option value="{{ $triptype->id }}">{{ $triptype->triptype_name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -55,18 +48,27 @@
                                 <select name="transportation_id" id="" class="form-control">
                                     <option value="">Please Select</option>
                                     @foreach ($transports as $transport)
-                                        <option value="{{ $transport->id }}">{{ $transport->transport_name}}</option>
+                                        <option value="{{ $transport->id }}">{{ $transport->transport_name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="">Trip Feature</label>
-                                <select name="tripfeature_id" id="" class="form-control">
-                                    <option value="">Please Select</option>
-                                    @foreach ($tripfeatures as $tripfeature)
-                                        <option value="{{ $tripfeature->id }}">{{ $tripfeature->id}}</option>
-                                    @endforeach
+                                <label for="">No of Days</label>
+                                <select name="" id="days" class="form-control form-select">
+                                    @for ($i = 1; $i <= 30; $i++)
+                                        <option value="{{ $i }}">{{ $i }}</option>
+                                    @endfor
                                 </select>
+                            </div>
+                            <hr>
+                            <div id="features">
+
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <label for="">Description</label>
+                                <textarea class="form-control" name="description" id="" cols="30" rows="5"></textarea>
+
                             </div>
                             <button class="btn btn-primary">Save</button>
                         </form>
@@ -74,10 +76,53 @@
 
                 </div>
 
+
             </div>
             <!-- /.col -->
         </div>
         <!-- /.row -->
     </section>
     <!-- /.content -->
+
+    <script>
+       $("#days").on('change', function() {
+            var day = $(this).val();
+            var html = '';
+
+            for (i = 1; i <= day; i++) {
+                html += `
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="form-group">
+                            <label for="">Day</label>
+                            <input type="number" value="${i}" readonly class="form-control" name="day[]">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="">Itinerary</label>
+                            <input type="text" class="form-control" name="itinerary[]">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="">Night Stay</label>
+                            <input type="text" class="form-control" name="stay[]">
+                        </div>
+                    </div>
+
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="">Spot</label>
+                            <input type="text" class="form-control" name="spot[]">
+                        </div>
+                    </div>
+                </div>`;
+            }
+
+            $("#features").html(html);
+        });
+
+    </script>
 @endsection

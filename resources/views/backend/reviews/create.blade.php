@@ -23,7 +23,7 @@
                             <div class="form-group">
                                 <label for="">User</label>
                                 <select name="user_id" id="" class="form-control">
-                                    <option value="">Please Select</option>
+                                    <option value="">▽ Please Select</option>
                                     @foreach ($users as $user)
                                         <option value="{{ $user->id }}">{{ $user->name}}</option>
                                     @endforeach
@@ -32,7 +32,7 @@
                             <div class="form-group">
                                 <label for="">Trip</label>
                                 <select name="trip_id" id="" class="form-control">
-                                    <option value="">Please Select</option>
+                                    <option value="">▽ Please Select</option>
                                     @foreach ($trips as $trip)
                                         <option value="{{ $trip->id }}">{{ $trip->trip_name}}</option>
                                     @endforeach

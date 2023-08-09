@@ -6,32 +6,24 @@
             <div class="col-12 mt-3">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Create City</h3>
+                        <h3 class="card-title">Update Province</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form action="{{ route('city.add') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('province.update') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="">Name</label>
-                                <input type="text" class="form-control" name="name">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="">Province</label>
-                                <select name="province_id" id="" class="form-control form-select">
-                                    <option value="" class="bi bi-caret-down">Please Select</option>
-                                    @foreach ($provinces as $province)
-                                        <option value="{{ $province->id }}">{{ $province->province_name }}</option>
-                                    @endforeach
-                                </select>
+                                <input type="text" class="form-control" name="name" value="{{ $province['province_name'] }}">
                             </div>
                             <div class="form-group">
-                                <label for="">Image</label>
+                                <label for="">Img</label>
                                 <input type="file" class="form-control" name="img">
+                                <br>
+                                <img width="150" src="{{ asset('uploads/provinces').'/'.$province['province_img'] }}" alt="">
                             </div>
+                            <input type="hidden" name="id" value="{{ $province['id'] }}">
                             <button class="btn btn-primary">Save</button>
-
                         </form>
                     </div>
 

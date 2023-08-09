@@ -39,7 +39,7 @@
                                 <td>{{$triptype->triptype_name}}</td>
                                 <td>{{$triptype->triptype_status}}</td>
                                 <td>
-                                    <a href="" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{ route('triptype.edit',$triptype->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                     <a onclick="return confirm('are you sure?')" href="{{ route('triptype.delete',$triptype->id) }}" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>

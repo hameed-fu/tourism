@@ -6,53 +6,56 @@
         <div class="col-12 mt-3">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Create Hotel</h3>
+                    <h3 class="card-title">Update Hotel</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form action="{{ route('hotel.add') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('hotel.update') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="">No Rooms</label>
-                            <input type="number" class="form-control" name="noroom">
+                            <input type="number" class="form-control" name="noroom" value="{{$hotel->no_room}}">
                         </div>
                         <div class="form-group">
                             <label for="">Name</label>
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" class="form-control" name="name" value="{{ $hotel->hotel_name }}">
                         </div>
                         <div class="form-group">
                             <label for="">Facilities</label>
-                            <input type="text" class="form-control" name="facility">
+                            <input type="text" class="form-control" name="facility" value="{{ $hotel->facilities }}">
                         </div>
                         <div class="form-group">
                             <label for="">Contact</label>
-                            <input type="number" class="form-control" name="contact">
+                            <input type="number" class="form-control" name="contact" value="{{ $hotel->contact }}">
                         </div>
                         <div class="form-group">
                             <label for="">Email</label>
-                            <input type="email" class="form-control" name="email">
+                            <input type="email" class="form-control" name="email" value="{{ $hotel->email }}">
                         </div>
                         <div class="form-group">
                             <label for="">Description</label>
-                            <input type="text" class="form-control" name="description">
+                            <input type="text" class="form-control" name="description" value="{{ $hotel->description }}">
                         </div>
                         <div class="form-group">
                             <label for="">Image</label>
                             <input type="file" class="form-control" name="img">
+                            <br>
+                            <img width="150" src="{{ asset('uploads/hotels').'/'.$hotel->hotel_img }}" alt="">
                         </div>
                         <div class="form-group">
                             <label for="">Price Range</label>
-                            <input type="number" class="form-control" name="range">
+                            <input type="number" class="form-control" name="range" value="{{ $hotel->price_range }}">
                         </div>
                         <div class="form-group">
                             <label for="">Location</label>
                             <select name="location_id" id="" class="form-control">
                                 <option value="">▽ Please Select</option>
                                 @foreach ($locations as $location)
-                                <option value="{{ $location->id }}">{{ $location->location_name}}</option>
+                                <option {{ $location->id === $hotel->location_id ? 'selected' : '' }} value="{{ $location->id }}">{{ $location->location_name}}</option>
                                 @endforeach
                             </select>
                         </div>
+                        <input type="hidden" name="id" value="{{ $hotel->id }}">
                         <button class="btn btn-primary">Save</button>
                     </form>
                 </div>

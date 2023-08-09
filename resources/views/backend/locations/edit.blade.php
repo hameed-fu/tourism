@@ -10,29 +10,32 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form action="{{ route('location.add') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('location.update') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="">Name</label>
-                                <input type="text" class="form-control" name="name">
+                                <input type="text" class="form-control" name="name" value="{{ $location->location_name }}">
                             </div>
                             <div class="form-group">
                                 <label for="">City</label>
                                 <select name="city_id" id="" class="form-control">
                                     <option value="">▽ Please Select</option>
                                     @foreach ($cities as $city)
-                                        <option value="{{ $city->id }}">{{ $city->city_name}}</option>
+                                        <option {{ $city->id === $location->city_id ? 'selected' : '' }} value="{{ $city->id }}">{{ $city->city_name}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="">Image</label>
                                 <input type="file" class="form-control" name="img">
+                                <br>
+                                <img width="150" src="{{ asset('uploads/locations').'/'.$location->location_img }}" alt="">
                             </div>
                             <div class="form-group">
                                 <label for="">Description</label>
-                                <input type="text" class="form-control" name="description">
+                                <input type="text" class="form-control" name="description" value="{{ $location->location_description }}">
                             </div>
+                            <input type="hidden" name="id" value="{{ $location->id }}">
                             <button class="btn btn-primary">Save</button>
                         </form>
                     </div>

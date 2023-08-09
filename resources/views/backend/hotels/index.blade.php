@@ -45,7 +45,7 @@
                                 <td>{{$hotel->description}}</td>
                                 <td>{{ $hotel->location->location_name }}</td>
                                  <td>
-                                    <a href="" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{ route('hotel.edit',$hotel->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                     <a onclick="return confirm('are you sure?')" href="{{ route('hotel.delete',$hotel->id) }}" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>

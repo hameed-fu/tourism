@@ -18,7 +18,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Province</label>
-                                <select name="province_id" id="" class="form-control">
+                                <select name="province_id" id="" class="form-control form-select">
                                     <option value="">Please Select</option>
                                     @foreach ($provinces as $province)
                                         <option {{ $province->id === $city->province_id ? 'selected' : '' }} value="{{ $province->id }}">{{ $province->province_name }}</option>

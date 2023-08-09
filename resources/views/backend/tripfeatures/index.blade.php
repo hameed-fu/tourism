@@ -27,20 +27,27 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
+                                <th scope="col">Trip</th>
                                 <th scope="col">Day</th>
                                 <th scope="col">Itinary</th>
                                 <th scope="col">Night Stay</th>
                                 <th scope="col">Spot</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($tripfeatures as $tripfeature )
                             <tr>
                                 <td>{{$tripfeature->id}}</td>
+                                <td>{{ $tripfeature->trip->trip_name }}</td>
                                 <td>{{$tripfeature->day}}</td>
                                 <td>{{$tripfeature->itenary}}</td>
                                 <td>{{$tripfeature->nightstay}}</td>
                                 <td>{{$tripfeature->spot}}</td>
+                                <td>
+                                    <a href="{{ route('tripfeature.edit',$tripfeature->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a onclick="return confirm('are you sure?')" href="{{ route('tripfeature.delete',$tripfeature->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

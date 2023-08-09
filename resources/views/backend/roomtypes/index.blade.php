@@ -28,6 +28,7 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Type</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,6 +36,10 @@
                             <tr>
                                 <td>{{$roomtype->id}}</td>
                                 <td>{{$roomtype->room_type}}</td>
+                                <td>
+                                    <a href="{{ route('roomtype.edit',$roomtype->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a onclick="return alert('Do you want to delete room type')" href="{{ route('roomtype.delete',$roomtype->id)}}" class="btn btn-sm btn-danger">Delete</a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
