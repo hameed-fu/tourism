@@ -11,22 +11,31 @@ use App\Http\Controllers\Controller;
 
 class RoomController extends Controller
 {
-    public function Room(){
+    public function Room()
+    {
         $rooms = Room::get();
-        return view('backend.rooms.index',compact('rooms'));
+        return view('backend.rooms.index', compact('rooms'));
     }
 
-    public function create(){
+    public function delete(Request $request)
+    {
+        Room::find($request->id)->delete();
+        return redirect()->route('rooms.index')->with('success', 'Room deleted successfully');
+    }
+
+    public function create()
+    {
         $roomtypes = RoomType::get();
         $hotels = Hotel::get();
-        return view('backend.rooms.create',compact('roomtypes','hotels'));
+        return view('backend.rooms.create', compact('roomtypes', 'hotels'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $roomno = $request->roomno;
         $occupancy = $request->occupancy;
         $description = $request->description;
-        $availabillity = $request->availabillity;
+        $availability = $request->availabillity;
         $roomtype_id = $request->roomtype_id;
         $hotel_id = $request->hotel_id;
 
@@ -35,9 +44,37 @@ class RoomController extends Controller
             'roomtype_id' => $roomtype_id,
             'occupancy' => $occupancy,
             'room_description' => $description,
-            'availabillity' => $availabillity,
+            'availability' => $availability,
             'hotel_id' => $hotel_id,
-    ]);
-        return redirect()->route('rooms.index')->with('success','Room added successfully');
+        ]);
+        return redirect()->route('rooms.index')->with('success', 'Room added successfully');
+    }
+
+    public function edit($id)
+    {
+        $room = Room::with('roomtype', 'hotel')->find($id);
+        $roomtypes = RoomType::get();
+        $hotels = Hotel::get();
+        return view('backend.rooms.edit', compact('room', 'roomtypes', 'hotels'));
+    }
+
+    public function update(Request $request)
+    {
+        $roomno = $request->roomno;
+        $occupancy = $request->occupancy;
+        $description = $request->description;
+        $availability = $request->availabillity;
+        $roomtype_id = $request->roomtype_id;
+        $hotel_id = $request->hotel_id;
+
+        Room::where('id', $request->id)->update([
+            'room_no' => $roomno,
+            'roomtype_id' => $roomtype_id,
+            'occupancy' => $occupancy,
+            'room_description' => $description,
+            'availability' => $availability,
+            'hotel_id' => $hotel_id,
+        ]);
+        return redirect()->route('rooms.index')->with('success', 'Room Updated successfully');
     }
 }

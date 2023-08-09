@@ -32,6 +32,7 @@
                                 <th scope="col">Status</th>
                                 <th scope="col">User </th>
                                 <th scope="col">Room Type</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,6 +44,10 @@
                                 <td>{{$booking->status}}</td>
                                 <td>{{$booking->user->name}}</td>
                                 <td>{{$booking->roomtype->room_type}}</td>
+                                <td>
+                                    <a href="{{ route('booking.edit',$booking->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a onclick="return confirm('are you sure?')" href="{{ route('booking.delete',$booking->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

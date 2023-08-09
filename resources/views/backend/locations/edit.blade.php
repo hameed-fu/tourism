@@ -6,22 +6,22 @@
             <div class="col-12 mt-3">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Update City</h3>
+                        <h3 class="card-title">Create Location</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form action="{{ route('city.update') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('location.update') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="">Name</label>
-                                <input type="text" class="form-control" value="{{ $city->city_name }}" name="name">
+                                <input type="text" class="form-control" name="name" value="{{ $location->location_name }}">
                             </div>
                             <div class="form-group">
-                                <label for="">Province</label>
-                                <select name="province_id" id="" class="form-control">
-                                    <option value="">Please Select</option>
-                                    @foreach ($provinces as $province)
-                                        <option {{ $province->id === $city->province_id ? 'selected' : '' }} value="{{ $province->id }}">▽ {{ $province->province_name }}</option>
+                                <label for="">City</label>
+                                <select name="city_id" id="" class="form-control">
+                                    <option value="">▽ Please Select</option>
+                                    @foreach ($cities as $city)
+                                        <option {{ $city->id === $location->city_id ? 'selected' : '' }} value="{{ $city->id }}">{{ $city->city_name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -29,9 +29,13 @@
                                 <label for="">Image</label>
                                 <input type="file" class="form-control" name="img">
                                 <br>
-                                <img width="150" src="{{ asset('uploads/cities').'/'.$city->city_img }}" alt="">
+                                <img width="150" src="{{ asset('uploads/locations').'/'.$location->location_img }}" alt="">
                             </div>
-                            <input type="hidden" name="id" value="{{ $city->id }}">
+                            <div class="form-group">
+                                <label for="">Description</label>
+                                <input type="text" class="form-control" name="description" value="{{ $location->location_description }}">
+                            </div>
+                            <input type="hidden" name="id" value="{{ $location->id }}">
                             <button class="btn btn-primary">Save</button>
                         </form>
                     </div>

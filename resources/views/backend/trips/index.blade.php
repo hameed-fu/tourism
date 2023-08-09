@@ -30,10 +30,11 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Start Date</th>
                                 <th scope="col">End Date</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Description</th>
                                 <th scope="col">City </th>
                                 <th scope="col">Trip Type</th>
                                 <th scope="col">Transportation</th>
-                                <th scope="col">Tripfeature</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -44,12 +45,13 @@
                                 <td>{{$trip->trip_name}}</td>
                                 <td>{{$trip->start_date}}</td>
                                 <td>{{$trip->end_date}}</td>
+                                <td>{{$trip->status}}</td>
+                                <td>{{$trip->trip_description}}</td>
                                 <td>{{$trip->city->city_name }}</td>
                                 <td>{{ $trip->triptype->triptype_name }}</td>
                                 <td>{{ $trip->transport->transport_name }}</td>
-                                <td>{{ $trip->tripfeature->id }}</td>
                                 <td>
-                                    <a href="" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{ route('trip.edit',$trip->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                     <a onclick="return confirm('are you sure?')" href="{{ route('trip.delete',$trip->id) }}" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>

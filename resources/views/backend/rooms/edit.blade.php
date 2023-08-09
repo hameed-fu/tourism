@@ -6,34 +6,34 @@
             <div class="col-12 mt-3">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Create Room</h3>
+                        <h3 class="card-title">Update Room</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form action="{{ route('room.add') }}" method="post">
+                        <form action="{{ route('room.update') }}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label for="">Room N0</label>
-                                <input type="number" class="form-control" name="roomno">
+                                <input type="number" class="form-control" name="roomno" value="{{ $room->room_no }}">
                             </div>
                             <div class="form-group">
                                 <label for="">Ocuupancy</label>
-                                <input type="number" class="form-control" name="occupancy">
+                                <input type="number" class="form-control" name="occupancy" value="{{ $room->occupancy }}">
                             </div>
                             <div class="form-group">
                                 <label for="">Description</label>
-                                <input type="text" class="form-control" name="description">
+                                <input type="text" class="form-control" name="description" value="{{ $room->room_description}}">
                             </div>
                             <div class="form-group">
                                 <label for="">Availability</label>
-                                <input type="text" class="form-control" name="availabillity">
+                                <input type="text" class="form-control" name="availabillity" value="{{ $room->availability }}">
                             </div>
                             <div class="form-group">
                                 <label for="">Room Type</label>
                                 <select name="roomtype_id" id="" class="form-control">
                                     <option value="">▽ Please Select</option>
                                     @foreach ($roomtypes as $roomtype)
-                                        <option value="{{ $roomtype->id }}">{{ $roomtype->room_type}}</option>
+                                        <option {{ $roomtype->id===$room->roomtype_id ? 'selected' :"" }} value="{{ $roomtype->id }}">{{ $roomtype->room_type}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -42,10 +42,11 @@
                                 <select name="hotel_id" id="" class="form-control">
                                     <option value="">▽ Please Select</option>
                                     @foreach ($hotels as $hotel)
-                                        <option value="{{ $hotel->id }}">{{ $hotel->hotel_name}}</option>
+                                        <option  {{ $hotel->id===$room->hotel_id ? 'selected' :"" }}  value="{{ $hotel->id }}">{{ $hotel->hotel_name}}</option>
                                     @endforeach
                                 </select>
                             </div>
+                            <input type="hidden" name="id" value="{{ $room->id }}">
                             <button class="btn btn-primary">Save</button>
                         </form>
                     </div>

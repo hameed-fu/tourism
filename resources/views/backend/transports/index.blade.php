@@ -30,6 +30,7 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Model</th>
                                 <th scope="col">N0 Seats</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,6 +40,10 @@
                                 <td>{{$transport->transport_name}}</td>
                                 <td>{{$transport->transport_model}}</td>
                                 <td>{{$transport->no_seats}}</td>
+                                <td>
+                                    <a href="{{ route('transport.edit',$transport->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a onclick="return confirm('are you sure?')" href="{{ route('transport.delete',$transport->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

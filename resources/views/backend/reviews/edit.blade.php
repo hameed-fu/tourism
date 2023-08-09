@@ -6,37 +6,39 @@
             <div class="col-12 mt-3">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Create Trip Features</h3>
+                        <h3 class="card-title">Update Review</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form action="{{ route('tripfeature.add') }}" method="post">
+                        <form action="{{ route('review.update') }}" method="post">
                             @csrf
                             <div class="form-group">
-                                <label for="">Day</label>
-                                <input type="number" class="form-control" name="day">
+                                <label for="">Rating</label>
+                                <input type="number" class="form-control" name="rating" value="{{ $review->rating }}">
                             </div>
                             <div class="form-group">
-                                <label for="">Itenary</label>
-                                <input type="text" class="form-control" name="itenary">
+                                <label for="">Review Date</label>
+                                <input type="date" class="form-control" name="reviewdate" value="{{ $review->review_date }}">
                             </div>
                             <div class="form-group">
-                                <label for="">Night Stay</label>
-                                <input type="text" class="form-control" name="stay">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Spot</label>
-                                <input type="text" class="form-control" name="spot">
+                                <label for="">User</label>
+                                <select name="user_id" id="" class="form-control">
+                                    <option value="">▽ Please Select</option>
+                                    @foreach ($users as $user)
+                                        <option {{ $user->id===$review->user_id ? 'selected' :'' }} value="{{ $user->id }}">{{ $user->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="">Trip</label>
                                 <select name="trip_id" id="" class="form-control">
                                     <option value="">▽ Please Select</option>
                                     @foreach ($trips as $trip)
-                                        <option value="{{ $trip->id }}">{{ $trip->trip_name}}</option>
+                                        <option {{ $trip->id===$review->trip_id ? 'selected' :'' }} value="{{ $trip->id }}">{{ $trip->trip_name}}</option>
                                     @endforeach
                                 </select>
                             </div>
+                            <input type="hidden" name="id" value="{{ $review->id }}">
                             <button class="btn btn-primary">Save</button>
                         </form>
                     </div>

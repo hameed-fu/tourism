@@ -18,8 +18,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Province</label>
-                                <select name="province_id" id="" class="form-control">
-                                    <option value="">Please Select</option>
+                                <select name="province_id" id="" class="form-control ">
+                                    <option value="" class="bi bi-caret-down">▽ Please Select</option>
                                     @foreach ($provinces as $province)
                                         <option value="{{ $province->id }}">{{ $province->province_name }}</option>
                                     @endforeach
@@ -28,8 +28,9 @@
                             <div class="form-group">
                                 <label for="">Image</label>
                                 <input type="file" class="form-control" name="img">
-                            </div>
+                            </div> 
                             <button class="btn btn-primary">Save</button>
+                              
                         </form>
                     </div>
 

@@ -43,7 +43,7 @@
                                 <td>{{$location->location_description}}</td>
                                 <td>{{ $location->city->city_name }}</td>
                                 <td>
-                                    <a href="" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="{{ route('location.edit',$location->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                     <a onclick="return confirm('are you sure?')" href="{{ route('location.delete',$location->id) }}" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>   

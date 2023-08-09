@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Trip extends Model
 {
     use HasFactory;
-    protected $fillable = ['trip_name','start_date','end_date','city_id','triptype_id','transportation_id','tripfeature_id','status','trip_description'];
+    protected $fillable = ['trip_name','start_date','end_date','city_id','triptype_id','transportation_id','status','trip_description'];
 
     public function city()
     {
@@ -29,11 +29,11 @@ class Trip extends Model
         return $this->belongsTo(Transport::class,'transportation_id','id');
     }
 
-    public function tripfeature()
-    {
-        return $this->belongsTo(TripFeature::class);
-    }
     public function review(){
         return $this->hasMany(Review::class);
+    }
+    public function tripfeatures()
+    {
+        return $this->hasMany(TripFeature::class);
     }
 }

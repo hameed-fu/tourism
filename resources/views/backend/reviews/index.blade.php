@@ -41,6 +41,10 @@
                                 <td>{{$review->review_date}}</td>
                                 <td>{{ $review->user->name }}</td>
                                 <td>{{ $review->trip->trip_name }}</td>
+                                <td>
+                                    <a href="{{ route('review.edit',$review->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a onclick="return confirm('are you sure?')" href="{{ route('review.delete',$review->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

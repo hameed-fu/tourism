@@ -19,7 +19,7 @@
                             <div class="form-group">
                                 <label for="">City</label>
                                 <select name="city_id" id="" class="form-control">
-                                    <option value="">Please Select</option>
+                                    <option value="">▽ Please Select</option>
                                     @foreach ($cities as $city)
                                         <option value="{{ $city->id }}">{{ $city->city_name}}</option>
                                     @endforeach

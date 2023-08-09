@@ -9,10 +9,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class TripFeature extends Model
 {
     use HasFactory;
-    protected $fillable = ['day','itenary','nightstay','spot'];
-
-    public function trips()
+    protected $fillable = ['day','itenary','nightstay','spot','trip_id'];
+    
+    public function trip()
     {
-        return $this->hasMany(Trip::class);
+        return $this->belongsTo(Trip::class,'trip_id','id');
     }
+    
 }

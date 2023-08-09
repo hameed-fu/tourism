@@ -69,7 +69,6 @@ class TripSeeder extends Seeder
                     'city_id' => $city->id,
                     'triptype_id' =>$trip_types[$key],
                     'transportation_id' => $transports[$key],
-                    'tripfeature_id'    => $trip_features[$key],
 
                 ]);
             }

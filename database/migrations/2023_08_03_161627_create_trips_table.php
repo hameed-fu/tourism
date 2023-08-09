@@ -19,14 +19,12 @@ return new class extends Migration
             $table->unsignedBigInteger('city_id');
             $table->unsignedBigInteger('triptype_id');
             $table->unsignedBigInteger('transportation_id');
-            $table->unsignedBigInteger('tripfeature_id');
             $table->string('status')->nullable();
             $table->string('trip_description')->nullable();
             $table->timestamps();
             $table->foreign('triptype_id')->references('id')->on('trip_types');
             $table->foreign('city_id')->references('id')->on('cities');
             $table->foreign('transportation_id')->references('id')->on('transports');
-            // $table->foreign('tripfeature_id')->references('id')->on('tripfeatures');
 
         });
     }

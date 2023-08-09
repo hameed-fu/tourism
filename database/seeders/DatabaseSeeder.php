@@ -23,7 +23,6 @@ class DatabaseSeeder extends Seeder
             TripTypeSeeder::class,
             RoomTypeSeeder::class,
             UserSeeder::class,
-            TripFeaturesSeeder::class,
             ProvinceSeeder::class,
             CitySeeder::class,
             LocationSeeder::class,
@@ -33,6 +32,7 @@ class DatabaseSeeder extends Seeder
             ReviewSeeder::class,
             RoomSeeder::class,
             BookingSeeder::class,
+            TripFeaturesSeeder::class,
          ]);
     }
 }
