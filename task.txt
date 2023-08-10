@@ -1,0 +1,69 @@
+Task#1
+1. Move your views to controller and call them in URL
+2. make 2 function in controller (1. pass user name as a string, 2. pass 2 integers and apply sum,sub, divied and multiplication)
+
+Task#2
+
+1. Create a header in index page and set it by default route
+2. In header, create (Home, About us, contact, Login and Register)
+3. Show Login,Register link when a user is not logged in - use only session
+4. Make a simple form in index using bootstrap classes
+
+Task#3
+1. create category, items, posts table using migration command
+2. create models for each table and add atleast 10 records accordingly
+3. show these records on appropriate pages in table form
+
+Task#4
+1. create seperate page for each table in your existing project
+2. make a separate FORM for each table record
+3. apply appropriate validation on each FORM data
+4. Make Factories for each table and seed them in DB
+
+Task#5
+1. download an bootstrap admin panel from the internet
+2. embed/fit into your project
+3. make a master file and extens all other pages
+4. Set your all existing pages into this admin panel
+
+Task#6
+1. set all the page links on left side in your project
+2. make relationship b/w categories and items and show them accordingly
+3. study models and relationships.
+
+Task#7
+1. create a fresh project for blogging
+2. create categories, tags, users, and blogs
+2. add login functionality to your project - use laravel breeze
+3. add blogs in backend and show them on frontend
+4. on each blog show  categories
+5. make a dropdwon on frontend, when user select the category, it will show the related all blogs
+
+Task#8
+1. create the discussed tables and there fields/attributes. make constrains for each forieng key
+2. create Controllers, Moldes, and migrations for each table
+3. Create seeders for the following
+    3.1. Users
+    3.2. Hotels
+    3.3. Provinces, Citeis and Location
+    3.4. Trip types
+
+Task#9
+1. Create all the form for all the entities
+2. Perform CRUD for all
+
+Task#10
+1. Add file upload functionality in the project
+2. Add dropdwon for all parent entities in child table  in  each Form if any
+
+Task#11
+1. Update all the entities file uploads
+2. Update all the entities dependentt dropdwon
+3. Remove the feature id from trips.
+4. put the trip id in trip feature table
+
+Task#12
+1. Remove status form trip type
+2. update the trip with featues
+3. Check everything in backend and verify if its working
+//
