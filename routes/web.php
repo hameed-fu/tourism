@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\RoomController;
@@ -9,6 +9,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\BookingController;
+
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FrontendController;
+
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\RoomTypeController;
@@ -32,6 +36,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+Route::get('/',[FrontendController::class,'index']);
+
+
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -43,7 +57,17 @@ require __DIR__.'/auth.php';
 
 
 
+<<<<<<< HEAD
 Route::prefix('admin')->middleware('auth')->group(function () {
+=======
+Route::prefix('admin')->group(function () {
+
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('backend.dashboard');
+    })->name('dashboard');
+
+>>>>>>> 92d210013a9c4ce83f5f4e860f67e7faf794c3b3
     Route::get('user',[UserController::class,'User' ])->name('users.index');
     Route::get('user/delete/{id}',[UserController::class,'delete' ])->name('user.delete');
     Route::get('user/create',[UserController::class,'create' ])->name('user.create');
