@@ -24,6 +24,9 @@ Route::get('/', function () {
 });
 
 
+Route::get("mas", function(){
+      return view('frontend.layout.master');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -40,7 +43,7 @@ require __DIR__.'/auth.php';
 
 
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('user',[UserController::class,'User' ])->name('users.index');
     Route::get('user/delete/{id}',[UserController::class,'delete' ])->name('user.delete');
     Route::get('user/create',[UserController::class,'create' ])->name('user.create');
