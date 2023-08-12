@@ -1,6 +1,9 @@
 <?php
 
+<<<<<<< HEAD
 use App\Http\Controllers\ProfileController;
+=======
+>>>>>>> b60e5b5 (frontend template)
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\RoomController;
@@ -9,6 +12,11 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\BookingController;
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FrontendController;
+>>>>>>> b60e5b5 (frontend template)
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\RoomTypeController;
@@ -18,6 +26,7 @@ use App\Http\Controllers\TripFeatureController;
 
 
 
+<<<<<<< HEAD
 Route::get('/', function () {
     return redirect()->route('login');
     return view('welcome');
@@ -28,6 +37,16 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+=======
+
+Route::get('/',[FrontendController::class,'index']);
+
+
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+>>>>>>> b60e5b5 (frontend template)
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -40,7 +59,15 @@ require __DIR__.'/auth.php';
 
 
 
+<<<<<<< HEAD
 Route::prefix('admin')->group(function () {
+=======
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('backend.dashboard');
+    })->name('dashboard');
+
+>>>>>>> b60e5b5 (frontend template)
     Route::get('user',[UserController::class,'User' ])->name('users.index');
     Route::get('user/delete/{id}',[UserController::class,'delete' ])->name('user.delete');
     Route::get('user/create',[UserController::class,'create' ])->name('user.create');
