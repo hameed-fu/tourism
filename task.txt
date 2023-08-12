@@ -66,4 +66,13 @@ Task#12
 1. Remove status form trip type
 2. update the trip with featues
 3. Check everything in backend and verify if its working
-//
+
+Task#13
+1. Modify Home page.
+2. Display Trips in slider on Home page
+3. Display 12 Hotels on Home page
+4. Only show Cities, Trips, Hotels and reviews
+5. Make Home, About Us, Hotels, Trips, Destination(Citeis) and Contact Us page for Frontend.
+6. Create Detail page for each parent entity
+7. Midify table as discussed
+
