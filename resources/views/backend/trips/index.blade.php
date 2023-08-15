@@ -50,7 +50,7 @@
                                 <td>{{$trip->end_date}}</td>
                                 <td>{{$trip->price}}</td>
                                 <td>{{$trip->status}}</td>
-                                <td>{{$trip->trip_description}}</td>
+                                <td>{{ Str::words($trip->trip_description, 50, '...') }}</td>
                                 <td>{{$trip->city->city_name }}</td>
                                 <td>{{ $trip->triptype->triptype_name }}</td>
                                 <td>{{ $trip->transport->transport_name }}</td>

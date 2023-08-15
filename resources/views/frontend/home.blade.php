@@ -1,6 +1,5 @@
 @extends('frontend.layouts.master')
 @section('content')
-
 <section class="banner overflow-hidden">
     <div class="slider top50">
         <div class="swiper-container">
@@ -99,7 +98,7 @@
                             <div class="trend-content-title">
 
                                 <h3 class="mb-0 white">
-                                    <a href="" class="white">{{ $city->city_name }}</a>
+                                    <a href="{{ route('city.trips',$city->id) }}" class="white">{{ $city->city_name }}</a>
                                 </h3>
                             </div>
                             {{-- <span class="white bg-theme p-1 px-2 rounded">18 Tours</span> --}}
@@ -165,7 +164,7 @@
                     </div>
                 </div>
                 @endforeach
-                
+
             </div>
         </div>
     </div>
@@ -176,7 +175,7 @@
 <section class="our-team pb-6">
     <div class="container">
         <div class="section-title mb-6 w-75 mx-auto text-center">
-            
+
             <h2 class="mb-1">Famous<span class="theme">Hotels</span></h2>
         </div>
         <div class="team-main">

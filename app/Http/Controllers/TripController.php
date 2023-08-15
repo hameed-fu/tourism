@@ -36,7 +36,7 @@ class TripController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->img);
+
         $name = $request->input('name');
         $startdate = $request->input('startdate');
         $enddate = $request->input('enddate');
@@ -50,11 +50,11 @@ class TripController extends Controller
 
         if ($request->hasFile('img')) {
             $img = $request->file('img');
-            dd($file_name);
+
             $file_name = $request->img->getClientOriginalName();
             $request->img->move(public_path('uploads/trips'), $file_name);
         }
-      
+
         $trip = Trip::create([
             'trip_img' => $file_name,
             'trip_name' => $name,
@@ -67,7 +67,7 @@ class TripController extends Controller
             'status' => $status,
             'trip_description' => $description,
         ]);
-        
+
         foreach($request->day as $key => $row){
 
             TripFeature::create([
@@ -104,7 +104,7 @@ class TripController extends Controller
         $triptype_id = $request->input('triptype_id');
         $transportation_id = $request->input('transportation_id');
         $file_name =null;
-        
+
        $trip= Trip::find($request->id);
 
         if ($request->hasFile('img')) {
@@ -114,7 +114,7 @@ class TripController extends Controller
         }else{
             $file_name = $trip->trip_img;
         }
-        
+
         $trip =Trip::where('id',$request->id)->update([
             'trip_img' => $file_name,
             'trip_name' => $name,
@@ -128,8 +128,8 @@ class TripController extends Controller
             'trip_description' => $description,
         ]);
         foreach($request->day as $key => $row){
-       
-            // TripFeature::where('id',$trip)->update([     
+
+            // TripFeature::where('id',$trip)->update([
             //     'trip_id' => $trip,
             //     'day' => $row,
             //     'itenary' => $request->itinerary[$key],

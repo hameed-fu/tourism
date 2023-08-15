@@ -101,7 +101,7 @@
                     <div class="col-md-1">
                         <div class="form-group">
                             <label for="">Day</label>
-                            <input type="number" value=""  class="form-control" name="day[]">
+                            <input type="number" value="${i}" readonly  class="form-control" name="day[]">
                         </div>
                     </div>
                     <div class="col-md-3">

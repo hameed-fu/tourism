@@ -17,12 +17,12 @@ return new class extends Migration
             $table->string('trip_name')->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
-            $table->integer('price')->nullable();
+            $table->decimal('price', 7, 2)->nullable();
             $table->unsignedBigInteger('city_id');
             $table->unsignedBigInteger('triptype_id');
             $table->unsignedBigInteger('transportation_id');
             $table->string('status')->nullable();
-            $table->string('trip_description')->nullable();
+            $table->text('trip_description')->nullable();
             $table->timestamps();
             $table->foreign('triptype_id')->references('id')->on('trip_types');
             $table->foreign('city_id')->references('id')->on('cities');

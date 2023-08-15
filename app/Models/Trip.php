@@ -29,7 +29,7 @@ class Trip extends Model
         return $this->belongsTo(Transport::class,'transportation_id','id');
     }
 
-    public function review(){
+    public function reviews(){
         return $this->hasMany(Review::class);
     }
     public function tripfeatures()

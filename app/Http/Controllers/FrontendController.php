@@ -35,4 +35,14 @@ class FrontendController extends Controller
     public function hotel(){
         return view('frontend.hotel');
     }
+
+    public function city_trips($city_id){
+        $trips = Trip::where('city_id',$city_id)->get();
+        return view('frontend.city_trips',compact('trips'));
+    }
+
+    public function trip_detail($trip_id){
+        $trip = Trip::where('id',$trip_id)->first();
+        return view('frontend.trip_detail',compact('trip'));
+    }
 }

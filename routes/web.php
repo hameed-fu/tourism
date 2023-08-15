@@ -23,11 +23,13 @@ use App\Http\Controllers\TripFeatureController;
 
 Route::get('/',[FrontendController::class,'index']);
 Route::get('/contact',[FrontendController::class,'contact']);
-Route::get('frontend/menuhome',[FrontendController::class, 'menu_home'])->name('frontend.menuhome');
-Route::get('frontend/aboutus',[FrontendController::class, 'about_us'])->name('frontend.aboutus');
+// Route::get('/menuhome',[FrontendController::class, 'menu_home'])->name('frontend.menuhome');
+Route::get('/aboutus',[FrontendController::class, 'about_us'])->name('frontend.aboutus');
 Route::get('frontend/destination',[FrontendController::class, 'destination'])->name('frontend.destination');
 Route::get('frontend/trip',[FrontendController::class, 'trip'])->name('frontend.trip');
 Route::get('frontend/hotel',[FrontendController::class, 'hotel'])->name('frontend.hotel');
+Route::get('cities/trips/{city_id}',[FrontendController::class, 'city_trips'])->name('city.trips');
+Route::get('trip/detail/{trip_id}',[FrontendController::class, 'trip_detail'])->name('trip.detail');
 
 
 Route::middleware('auth')->group(function () {

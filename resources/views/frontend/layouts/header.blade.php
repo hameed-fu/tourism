@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zxx">
 
-<!-- Mirrored from htmldesigntemplates.com/html/travelin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 11 Aug 2023 07:01:02 GMT -->
 
 <head>
 	<meta charset="UTF-8">
@@ -16,10 +15,7 @@
 
 	<link href="{{ asset('frontend/css/plugin.css') }}" rel="stylesheet" type="text/css">
 
-	<link rel="stylesheet"
-		href="{{ asset('../../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
-	<link rel="stylesheet"
-		href="{{ asset('../../../cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"  />
 	<link rel="stylesheet" href="{{ asset('fonts/line-icons.css') }}" type="text/css">
 </head>
 
@@ -67,7 +63,7 @@
 						<div class="navbar-collapse1 d-flex align-items-center" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav" id="responsive-menu">
 								<li class="dropdown submenu active">
-									<a href="{{ route('frontend.menuhome') }}" class="dropdown-toggle" data-toggle="dropdown" role="button"
+									<a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button"
 										aria-haspopup="true" aria-expanded="false">Home <i class="icon-arrow-down"
 											aria-hidden="true"></i></a>
 								</li>
@@ -86,9 +82,9 @@
 									<a href="{{ route('frontend.hotel') }}" class="dropdown-toggle" data-toggle="dropdown" role="button"
 										aria-haspopup="true" aria-expanded="false">Hotels <i class="icon-arrow-down"
 											aria-hidden="true"></i></a>
-									
+
 								</li>
-								
+
 								<li class="search-main"><a href="#search1" class="mt_search"><i
 											class="fa fa-search"></i></a></li>
 							</ul>

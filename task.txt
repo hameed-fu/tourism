@@ -76,3 +76,9 @@ Task#13
 6. Create Detail page for each parent entity
 7. Midify table as discussed
 
+Task#14
+1. Remove status from Trips
+2. set values in Trips price in edit
+3. add column(comment) in reviews table
+4. make page for all required entities on frontend and show the data
+
