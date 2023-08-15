@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('trips', function (Blueprint $table) {
             $table->id();
+            $table->string('trip_img')->nullable();
             $table->string('trip_name')->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
+            $table->integer('price')->nullable();
             $table->unsignedBigInteger('city_id');
             $table->unsignedBigInteger('triptype_id');
             $table->unsignedBigInteger('transportation_id');

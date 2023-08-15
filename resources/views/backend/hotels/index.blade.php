@@ -31,7 +31,7 @@
                                 <th scope="col">Image</th>
                                 <th scope="col">No Rooms</th>
                                 <th scope="col">Description</th>
-                                <th scope="col">Location</th>
+                                <th scope="col">City</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -43,7 +43,7 @@
                                 <td><img width="150" src="{{ asset('uploads/hotels').'/'.$hotel->hotel_img }}" alt=""></td>
                                 <td>{{$hotel->no_room}}</td>
                                 <td>{{$hotel->description}}</td>
-                                <td>{{ $hotel->location->location_name }}</td>
+                                <td>{{ $hotel->city->city_name }}</td>
                                  <td>
                                     <a href="{{ route('hotel.edit',$hotel->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                     <a onclick="return confirm('are you sure?')" href="{{ route('hotel.delete',$hotel->id) }}" class="btn btn-sm btn-danger">Delete</a>

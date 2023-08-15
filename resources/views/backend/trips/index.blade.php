@@ -27,9 +27,11 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
+                                <th scope="col">Image</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Start Date</th>
                                 <th scope="col">End Date</th>
+                                <th scope="col">Price</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">City </th>
@@ -42,9 +44,11 @@
                             @foreach ($trips as $trip )
                             <tr>
                                 <td>{{$trip->id}}</td>
+                                <td><img width="150" src="{{ asset('uploads/trips').'/'.$trip->trip_img }}" alt=""></td>
                                 <td>{{$trip->trip_name}}</td>
                                 <td>{{$trip->start_date}}</td>
                                 <td>{{$trip->end_date}}</td>
+                                <td>{{$trip->price}}</td>
                                 <td>{{$trip->status}}</td>
                                 <td>{{$trip->trip_description}}</td>
                                 <td>{{$trip->city->city_name }}</td>

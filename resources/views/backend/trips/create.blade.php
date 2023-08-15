@@ -9,10 +9,10 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form action="{{ route('trip.add') }}" method="post">
+                        <form action="{{ route('trip.add') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
-                                <label for="">Trip Name</label>
+                                <label for="">Name</label>
                                 <input type="text" class="form-control" name="name">
                             </div>
                             <div class="form-group">
@@ -23,7 +23,10 @@
                                 <label for="">End Date</label>
                                 <input type="date" class="form-control" name="enddate">
                             </div>
-
+                            <div class="form-group">
+                                <label for="">Price</label>
+                                <input type="number" class="form-control" name="price">
+                            </div>
 
                             <div class="form-group">
                                 <label for="">City</label>
@@ -68,7 +71,10 @@
                             <div class="form-group">
                                 <label for="">Description</label>
                                 <textarea class="form-control" name="description" id="" cols="30" rows="5"></textarea>
-
+                            </div>
+                            <div class="form-group">
+                                <label for="">Image</label>
+                                <input type="file" class="form-control" name="img">
                             </div>
                             <button class="btn btn-primary">Save</button>
                         </form>

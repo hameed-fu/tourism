@@ -10,10 +10,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Hotel extends Model
 {
     use HasFactory;
-    protected $fillable = ['no_room','hotel_name','facilities','contact','email','description','hotel_img','price_range','location_id'];
-    public function location()
+    protected $fillable = ['no_room','hotel_name','facilities','contact','email','description','hotel_img','price_range','city_id'];
+    public function city()
     {
-        return $this->belongsTo(Location::class);
+        return $this->belongsTo(City::class);
     }
     public function room()
     {

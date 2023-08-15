@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Hotel;
 use App\Models\Location;
 use Illuminate\Http\Request;
@@ -24,8 +25,8 @@ class HotelController extends Controller
 
     public function create()
     {
-        $locations = Location::get();
-        return view('backend.hotels.create', compact('locations'));
+        $cities = City::get();
+        return view('backend.hotels.create', compact('cities'));
     }
 
     public function store(Request $request)
@@ -37,7 +38,7 @@ class HotelController extends Controller
         $email = $request->input('email');
         $description = $request->input('description');
         $range = $request->input('range');
-        $location_id = $request->input('location_id');
+        $city_id = $request->input('city_id');
         $file_name = null;
 
         if ($request->hasFile('img')) {
@@ -55,16 +56,16 @@ class HotelController extends Controller
             'description' => $description,
             'hotel_img' => $file_name,
             'price_range' => $range,
-            'location_id' => $location_id,
+            'city_id' => $city_id,
         ]);
 
         return redirect()->route('hotels.index')->with('success', 'Hotel added successfully');
     }
 
     public function edit($id){
-        $hotel = Hotel::with('location')->find($id);
-        $locations = Location::get();
-        return view('backend.hotels.edit',compact('hotel','locations'));
+        $hotel = Hotel::with('city')->find($id);
+        $cities = City::get();
+        return view('backend.hotels.edit',compact('hotel','cities'));
     }
 
     public function update(Request $request)
@@ -76,7 +77,7 @@ class HotelController extends Controller
         $email = $request->input('email');
         $description = $request->input('description');
         $range = $request->input('range');
-        $location_id = $request->input('location_id');
+        $city_id = $request->input('city_id');
         $file_name = null;
 
         $hotel=Hotel::find($request->id);
@@ -97,7 +98,7 @@ class HotelController extends Controller
             'description' => $description,
             'hotel_img' => $file_name,
             'price_range' => $range,
-            'location_id' => $location_id,
+            'city_id' => $city_id,
         ]);
 
         return redirect()->route('hotels.index')->with('success', 'Hotel Update successfully');

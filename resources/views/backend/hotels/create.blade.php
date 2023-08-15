@@ -41,11 +41,11 @@
                             <input type="number" class="form-control" name="range">
                         </div>
                         <div class="form-group ">
-                            <label for="">Location</label>
-                            <select name="location_id" id="" class="form-control form-select">
+                            <label for="">City</label>
+                            <select name="city_id" id="" class="form-control form-select">
                                 <option value="">Please Select</option>
-                                @foreach ($locations as $location)
-                                <option value="{{ $location->id }}">{{ $location->location_name}}</option>
+                                @foreach ($cities as $city)
+                                <option value="{{ $city->id }}">{{ $city->city_name}}</option>
                                 @endforeach
                             </select>
                         </div>

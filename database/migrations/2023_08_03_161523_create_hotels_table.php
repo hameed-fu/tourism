@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('hotel_img')->nullable();
             $table->integer('price_range')->nullable();
-            $table->unsignedBigInteger('location_id'); // Using unsignedBigInteger for foreign key
+            $table->unsignedBigInteger('city_id'); // Using unsignedBigInteger for foreign key
             $table->timestamps();
-            $table->foreign('location_id')->references('id')->on('locations'); // Foreign key constraint
+            $table->foreign('city_id')->references('id')->on('cities'); // Foreign key constraint
         });
     }
 

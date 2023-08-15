@@ -36,19 +36,31 @@ class TripController extends Controller
 
     public function store(Request $request)
     {
+        dd($request->img);
         $name = $request->input('name');
         $startdate = $request->input('startdate');
         $enddate = $request->input('enddate');
+        $price = $request->input('price');
         $status = $request->input('status');
         $description = $request->input('description');
         $city_id = $request->input('city_id');
         $triptype_id = $request->input('triptype_id');
         $transportation_id = $request->input('transportation_id');
+        $file_name="null";
 
+        if ($request->hasFile('img')) {
+            $img = $request->file('img');
+            dd($file_name);
+            $file_name = $request->img->getClientOriginalName();
+            $request->img->move(public_path('uploads/trips'), $file_name);
+        }
+      
         $trip = Trip::create([
+            'trip_img' => $file_name,
             'trip_name' => $name,
             'start_date' => $startdate,
             'end_date' => $enddate,
+            'price' => $price,
             'city_id' => $city_id,
             'triptype_id' => $triptype_id,
             'transportation_id' => $transportation_id,
@@ -85,16 +97,30 @@ class TripController extends Controller
         $name = $request->input('name');
         $startdate = $request->input('startdate');
         $enddate = $request->input('enddate');
+        $price = $request->input('price');
         $status = $request->input('status');
         $description = $request->input('description');
         $city_id = $request->input('city_id');
         $triptype_id = $request->input('triptype_id');
         $transportation_id = $request->input('transportation_id');
+        $file_name =null;
+        
+       $trip= Trip::find($request->id);
 
+        if ($request->hasFile('img')) {
+            $img = $request->file('img');
+            $file_name = $request->img->getClientOriginalName();
+            $request->img->move(public_path('uploads/trips'), $file_name);
+        }else{
+            $file_name = $trip->trip_img;
+        }
+        
         $trip =Trip::where('id',$request->id)->update([
+            'trip_img' => $file_name,
             'trip_name' => $name,
             'start_date' => $startdate,
             'end_date' => $enddate,
+            'price' => $price,
             'city_id' => $city_id,
             'triptype_id' => $triptype_id,
             'transportation_id' => $transportation_id,

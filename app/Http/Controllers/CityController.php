@@ -28,7 +28,7 @@ class CityController extends Controller
     public function store(Request $request){
         $name = $request->name;
         $province_id = $request->province_id;
-
+        $file_name="null";
 
         if ($request->hasFile('img')) {
             $img = $request->file('img');
@@ -53,7 +53,7 @@ class CityController extends Controller
     public function update(Request $request){
         $name = $request->name;
         $province_id = $request->province_id;
-
+        $file_name="null";
         $city = City::find($request->id);
 
         if ($request->hasFile('img')) {

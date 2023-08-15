@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\City;
 use App\Models\Hotel;
 use App\Models\Location;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class HotelSeeder extends Seeder
 {
@@ -14,7 +15,7 @@ class HotelSeeder extends Seeder
      */
     public function run(): void
     {
-        $locations = Location::all();
+        $cities = City::all();
         $arr = [
             [
                 'hotel_name' => 'Malam Jaba Hotel',
@@ -45,7 +46,7 @@ class HotelSeeder extends Seeder
                 'description'=>'Kumrat Valley Hotels Prices are Rs.3000 to Rs.7000 per night.',
             ]
         ];
-        foreach ($locations as $key => $location) {
+        foreach ($cities as $key => $city) {
 
             if (isset($arr[$key])) { // Check if the index exists in $arr
                 Hotel::create([
@@ -54,7 +55,7 @@ class HotelSeeder extends Seeder
                     'email'   => $arr[$key]['email'],
                     'description' => $arr[$key]['description'],
                     'hotel_img' => $arr[$key]['hotel_img'],
-                    'location_id' => $location->id,
+                    'city_id' => $city->id,
                 ]);
             } 
         }

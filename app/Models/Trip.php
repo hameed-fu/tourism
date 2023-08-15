@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Trip extends Model
 {
     use HasFactory;
-    protected $fillable = ['trip_name','start_date','end_date','city_id','triptype_id','transportation_id','status','trip_description'];
+    protected $fillable = ['trip_img','trip_name','start_date','end_date','price','city_id','triptype_id','transportation_id','status','trip_description'];
 
     public function city()
     {

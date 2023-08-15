@@ -10,7 +10,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form action="{{ route('trip.update') }}" method="post">
+                        <form action="{{ route('trip.update') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="">Trip Name</label>
@@ -23,6 +23,10 @@
                             <div class="form-group">
                                 <label for="">End Date</label>
                                 <input type="date" class="form-control" name="enddate" value="{{ $trip->end_date }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Price</label>
+                                <input type="number" class="form-control" name="price" value="{{ $trip->end_date }}">
                             </div>
                             <div class="form-group">
                                 <label for="">Status</label>
@@ -105,6 +109,12 @@
                             <div class="form-group">
                                 <label for="">Description</label>
                                 <textarea class="form-control" name="description"  id="" cols="30" rows="5" >{{$trip->trip_description}}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Image</label>
+                                <input type="file" class="form-control" name="img">
+                                <br>
+                                <img width="150" src="{{ asset('uploads/trips').'/'.$trip->trip_img }}" alt="">
                             </div>
                             <input type="hidden" name="id" value="{{ $trip->id }}">
                             <button class="btn btn-primary">Save</button>

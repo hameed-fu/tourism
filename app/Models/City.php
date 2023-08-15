@@ -31,4 +31,9 @@ class City extends Model
     {
         return $this->hasMany(Trip::class);
     }
+
+    public function cities()
+    {
+        return $this->hasMany(City::class);
+    }
 }
