@@ -82,3 +82,10 @@ Task#14
 3. add column(comment) in reviews table
 4. make page for all required entities on frontend and show the data
 
+Task#15
+1. Create profile, review and booking history pages on Frontend(Table)
+2. Add a button on trip details page for only auth users
+3. Add status to trip bookings
+4. Remove the start/end date from Trips on backend
+5. Show only booking date, user, trip and status on booking page on backend
+

@@ -10,13 +10,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Booking extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id','trip_id','start_date','end_date'];
+    protected $fillable = ['user_id','trip_id','date'];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-    
+
     public function trip()
     {
         return $this->belongsTo(Trip::class);

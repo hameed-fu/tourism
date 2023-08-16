@@ -35,6 +35,10 @@ Route::get('all/cities/',[FrontendController::class, 'all_city'])->name('all.cit
 Route::get('city/detail/{city_id}',[FrontendController::class, 'city_detail'])->name('city.detail');
 Route::get('all/trips/',[FrontendController::class, 'all_trip'])->name('all.trip');
 
+Route::middleware(['auth'])->group(function () {
+
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -49,7 +53,7 @@ require __DIR__.'/auth.php';
 
 
 
-Route::prefix('admin')->middleware('auth')->group(function () {
+Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('/dashboard', function () {
         return view('backend.dashboard');
     })->name('dashboard');

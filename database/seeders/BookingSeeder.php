@@ -21,24 +21,20 @@ class BookingSeeder extends Seeder
         $trips = Trip::all();
         $arr=[
              [
-                 'start_date' => '2023-04-09',
-                 'end_date' => '2023-04-15',
-                 
+                 'date' => '2023-04-09',
+
              ],
              [
-                'start_date' => '2023-03-09',
-                'end_date' => '2023-03-15',
-                
+                'date' => '2023-03-09',
+
             ],
             [
-                'start_date' => '2023-02-09',
-                'end_date' => '2023-02-15',
-                
+                'date' => '2023-02-09',
+
             ],
             [
-                'start_date' => '2023-05-09',
-                'end_date' => '2023-05-15',
-                
+                'date' => '2023-05-09',
+
             ],
         ];
 
@@ -51,8 +47,7 @@ class BookingSeeder extends Seeder
 
            if (isset($arr[$key])) { // Check if the index exists in $arr
                Booking::create([
-                   'start_date' => $arr[$key]['start_date'],
-                   'end_date' => $arr[$key]['end_date'],
+                   'date' => $arr[$key]['date'],
                    'trip_id' => $trip->id,
                    'user_id' =>$users[$key],
 

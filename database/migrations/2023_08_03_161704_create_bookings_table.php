@@ -15,9 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('trip_id');
-            $table->date('start_date')->nullable();
-            $table->date('end_date')->nullable();
-            
+            $table->date('date')->nullable();
+
             $table->timestamps();
             $table->foreign('trip_id')->references('id')->on('trips');
             $table->foreign('user_id')->references('id')->on('users');
