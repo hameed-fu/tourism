@@ -26,11 +26,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Price</label>
-                                <input type="number" class="form-control" name="price" value="{{ $trip->end_date }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Status</label>
-                                <input type="text" class="form-control" name="status" value="{{ $trip->status }}">
+                                <input type="number" class="form-control" name="price" value="{{ $trip->price }}">
                             </div>
                             <div class="form-group">
                                 <label for="">City</label>

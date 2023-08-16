@@ -29,6 +29,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Rating</th>
                                 <th scope="col">Date</th>
+                                <th scope="col">comments</th>
                                 <th scope="col">User</th>
                                 <th scope="col">Trip</th>
                             </tr>
@@ -39,6 +40,7 @@
                                 <td>{{$review->id}}</td>
                                 <td>{{$review->rating}}</td>
                                 <td>{{$review->review_date}}</td>
+                                <td>{{$review->comments}}</td>
                                 <td>{{ $review->user->name }}</td>
                                 <td>{{ $review->trip->trip_name }}</td>
                                 <td>

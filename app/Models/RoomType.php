@@ -14,8 +14,5 @@ class RoomType extends Model
         return $this->hasMany(Room::class);
     }
 
-    public function booking()
-    {
-        return $this->hasOne(Booking::class);
-    }
+    
 }

@@ -41,7 +41,6 @@ class TripController extends Controller
         $startdate = $request->input('startdate');
         $enddate = $request->input('enddate');
         $price = $request->input('price');
-        $status = $request->input('status');
         $description = $request->input('description');
         $city_id = $request->input('city_id');
         $triptype_id = $request->input('triptype_id');
@@ -64,7 +63,6 @@ class TripController extends Controller
             'city_id' => $city_id,
             'triptype_id' => $triptype_id,
             'transportation_id' => $transportation_id,
-            'status' => $status,
             'trip_description' => $description,
         ]);
 
@@ -98,7 +96,6 @@ class TripController extends Controller
         $startdate = $request->input('startdate');
         $enddate = $request->input('enddate');
         $price = $request->input('price');
-        $status = $request->input('status');
         $description = $request->input('description');
         $city_id = $request->input('city_id');
         $triptype_id = $request->input('triptype_id');
@@ -124,7 +121,6 @@ class TripController extends Controller
             'city_id' => $city_id,
             'triptype_id' => $triptype_id,
             'transportation_id' => $transportation_id,
-            'status' => $status,
             'trip_description' => $description,
         ]);
         foreach($request->day as $key => $row){

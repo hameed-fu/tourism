@@ -112,7 +112,7 @@
                     <a href="{{ route('bookings.index') }}"
                         class="nav-link {{ request()->is('admin/booking') || request()->is('admin/booking/*') ? 'active' : '' }}">
                         <i class="nav-icon fa fa-table"></i>
-                        <p>Booking </p>
+                        <p>Trip Booking </p>
                     </a>
                 </li>
                 <li class="nav-item">

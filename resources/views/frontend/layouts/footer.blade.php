@@ -1,5 +1,5 @@
-<footer class="pt-20 pb-4" style="background-image: url(frontend/images/background_pattern.png);">
-    <div class="section-shape top-0" style="background-image: url(frontend/images/shape8.png);"></div>
+<footer class="pt-20 pb-4" style="background-image: url({{ asset('frontend') }}/images/background_pattern.png);">
+    <div class="section-shape top-0" style="background-image: url({{ asset('frontend') }}/images/shape8.png);"></div>
 
     <div class="insta-main pb-10">
         <div class="container">
@@ -10,47 +10,47 @@
                 <div class="row attract-slider">
                     <div class="col-md-3 col-sm-6">
                         <div class="insta-image rounded">
-                            <a href="gallery.html"><img src="frontend/images/insta/ins-3.jpg" alt="insta"></a>
+                            <a href="gallery.html"><img src="{{ asset('frontend') }}/images/insta/ins-3.jpg" alt="insta"></a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="insta-image rounded">
-                            <a href="gallery.html"><img src="frontend/images/insta/ins-4.jpg" alt="insta"></a>
+                            <a href="gallery.html"><img src="{{ asset('frontend') }}/images/insta/ins-4.jpg" alt="insta"></a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="insta-image rounded">
-                            <a href="gallery.html"><img src="frontend/images/insta/ins-5.jpg" alt="insta"></a>
+                            <a href="gallery.html"><img src="{{ asset('frontend') }}/images/insta/ins-5.jpg" alt="insta"></a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="insta-image rounded">
-                            <a href="gallery.html"><img src="frontend/images/insta/ins-1.jpg" alt="insta"></a>
+                            <a href="gallery.html"><img src="{{ asset('frontend') }}/images/insta/ins-1.jpg" alt="insta"></a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="insta-image rounded">
-                            <a href="gallery.html"><img src="frontend/images/insta/ins-7.jpg" alt="insta"></a>
+                            <a href="gallery.html"><img src="{{ asset('frontend') }}/images/insta/ins-7.jpg" alt="insta"></a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="insta-image rounded">
-                            <a href="gallery.html"><img src="frontend/images/insta/ins-8.jpg" alt="insta"></a>
+                            <a href="gallery.html"><img src="{{ asset('frontend') }}/images/insta/ins-8.jpg" alt="insta"></a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="insta-image rounded">
-                            <a href="gallery.html"><img src="frontend/images/insta/ins-2.jpg" alt="insta"></a>
+                            <a href="gallery.html"><img src="{{ asset('frontend') }}/images/insta/ins-2.jpg" alt="insta"></a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="insta-image rounded">
-                            <a href="gallery.html"><img src="frontend/images/insta/ins-6.jpg" alt="insta"></a>
+                            <a href="gallery.html"><img src="{{ asset('frontend') }}/images/insta/ins-6.jpg" alt="insta"></a>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="insta-image rounded">
-                            <a href="gallery.html"><img src="frontend/images/insta/ins-9.jpg" alt="insta"></a>
+                            <a href="gallery.html"><img src="{{ asset('frontend') }}/images/insta/ins-9.jpg" alt="insta"></a>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4 pe-4">
                     <div class="footer-about">
-                        <img src="frontend/images/logo-white.png" alt>
+                        <img src="{{ asset('frontend') }}/images/logo-white.png" alt>
                         <p class="mt-3 mb-3 white">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio suspendisse leo neque
                             iaculis molestie sagittis maecenas aenean eget molestie sagittis.
@@ -222,7 +222,7 @@
                                 <div class="col-lg-6">
                                     <div class="blog-image rounded">
                                         <a href="#"
-                                            style="background-image: url(frontend/images/trending/trending5.jpg);"></a>
+                                            style="background-image: url({{ asset('frontend') }}/images/trending/trending5.jpg);"></a>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -266,7 +266,7 @@
                                 <div class="col-lg-6">
                                     <div class="blog-image rounded">
                                         <a href="#"
-                                            style="background-image: url(frontend/images/trending/trending5.jpg);"></a>
+                                            style="background-image: url({{ asset('frontend') }}/images/trending/trending5.jpg);"></a>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">

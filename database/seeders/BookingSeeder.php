@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Trip;
 use App\Models\User;
 use App\Models\Review;
 use App\Models\Booking;
@@ -17,27 +18,27 @@ class BookingSeeder extends Seeder
     public function run(): void
     {
         $users = User::all();
-        $roomtypes = RoomType::all();
+        $trips = Trip::all();
         $arr=[
              [
                  'start_date' => '2023-04-09',
                  'end_date' => '2023-04-15',
-                 'status' => 'Done',
+                 
              ],
              [
                 'start_date' => '2023-03-09',
                 'end_date' => '2023-03-15',
-                'status' => 'pending',
+                
             ],
             [
                 'start_date' => '2023-02-09',
                 'end_date' => '2023-02-15',
-                'status' => 'pending',
+                
             ],
             [
                 'start_date' => '2023-05-09',
                 'end_date' => '2023-05-15',
-                'status' => 'Done',
+                
             ],
         ];
 
@@ -46,14 +47,13 @@ class BookingSeeder extends Seeder
             $users[$key]=$row->id;
            }
 
-       foreach($roomtypes as $key => $roomtype){
+       foreach($trips as $key => $trip){
 
            if (isset($arr[$key])) { // Check if the index exists in $arr
                Booking::create([
                    'start_date' => $arr[$key]['start_date'],
                    'end_date' => $arr[$key]['end_date'],
-                   'status' => $arr[$key]['status'],
-                   'roomtype_id' => $roomtype->id,
+                   'trip_id' => $trip->id,
                    'user_id' =>$users[$key],
 
                ]);

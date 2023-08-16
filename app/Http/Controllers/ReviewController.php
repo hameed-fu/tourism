@@ -33,6 +33,7 @@ class ReviewController extends Controller
 
         $rating = $request->rating;
         $reviewdate = $request->reviewdate;
+        $comments = $request->comments;
         $user_id = $request->user_id;
         $trip_id = $request->trip_id;
 
@@ -40,6 +41,7 @@ class ReviewController extends Controller
             'user_id' => $user_id,
             'rating' => $rating,
             'review_date' => $reviewdate,
+            'comments' => $comments,
             'trip_id' => $trip_id,
         ]);
         return redirect()->route('reviews.index')->with('success','review added successfully');
@@ -58,6 +60,7 @@ class ReviewController extends Controller
 
         $rating = $request->rating;
         $reviewdate = $request->reviewdate;
+        $comments = $request->comments;
         $user_id = $request->user_id;
         $trip_id = $request->trip_id;
 
@@ -65,6 +68,7 @@ class ReviewController extends Controller
             'user_id' => $user_id,
             'rating' => $rating,
             'review_date' => $reviewdate,
+            'comments' => $comments,
             'trip_id' => $trip_id,
         ]);
         return redirect()->route('reviews.index')->with('success','review Update successfully');

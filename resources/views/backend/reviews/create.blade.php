@@ -21,6 +21,10 @@
                                 <input type="date" class="form-control" name="reviewdate">
                             </div>
                             <div class="form-group">
+                                <label for="">Comments</label>
+                                <textarea class="form-control" name="comments" id="" cols="30" rows="5"></textarea>
+                            </div>
+                            <div class="form-group">
                                 <label for="">User</label>
                                 <select name="user_id" id="" class="form-control form-select">
                                     <option value="">Please Select</option>

@@ -21,6 +21,10 @@
                                 <input type="date" class="form-control" name="reviewdate" value="{{ $review->review_date }}">
                             </div>
                             <div class="form-group">
+                                <label for="">Comments</label>
+                                <textarea class="form-control" name="comments"  id="" cols="30" rows="5" >{{$review->comments}}</textarea>
+                            </div>
+                            <div class="form-group">
                                 <label for="">User</label>
                                 <select name="user_id" id="" class="form-control form-select">
                                     <option value="">Please Select</option>

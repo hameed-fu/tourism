@@ -150,7 +150,7 @@
                                     <span class="fw-bold">{{$daysDifference}}Days Tours</span>
                                 </div>
                             </div>
-                            <h3 class="mb-1"><a href="tour-grid.html">{{ $trip->trip_name }}</a></h3>
+                            <h3 class="mb-1"><a href="{{ route('trip.detail',$trip->id) }}">{{ $trip->trip_name }}</a></h3>
                             <div class="rating-main d-flex align-items-center pb-2">
                                 <div class="rating">
                                     <span class="fa fa-star checked"></span>
@@ -187,7 +187,7 @@
                             <img src="{{ asset('uploads/hotels').'/'.$hotel->hotel_img }}" alt="team">
                         </div>
                         <div class="team-content text-center p-3 bg-theme">
-                            <h4 class="mb-0 white">{{ $hotel->hotel_name }}</h4>
+                            <h4 class="mb-0 white"><a href="{{ route('hotel.detail',$hotel->id) }}" class="mb-0 white">{{ $hotel->hotel_name }}</a></h4>
                         </div>
                     </div>
                 </div>

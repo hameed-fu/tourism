@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Trip;
 use App\Models\User;
 use App\Models\Booking;
 use App\Models\RoomType;
@@ -18,8 +19,8 @@ class BookingController extends Controller
 
     public function create(){
         $users = User::get();
-        $roomtypes = RoomType::get();
-        return view('backend.bookings.create',compact('users','roomtypes'));
+        $trips = Trip::get();
+        return view('backend.bookings.create',compact('users','trips'));
     }
 
     public function delete(Request $request){
@@ -29,42 +30,41 @@ class BookingController extends Controller
 
     public function store(Request $request){
         $user_id = $request->user_id;
-        $roomtype_id = $request->roomtype_id;
+        $trip_id = $request->trip_id;
         $startdate = $request->startdate;
         $enddate = $request->enddate;
-        $status = $request->status;
+    
 
         Booking::create([
             'user_id' => $user_id,
-            'roomtype_id' => $roomtype_id,
+            'trip_id' => $trip_id,
             'start_date' => $startdate,
             'end_date' => $enddate,
-            'status' => $status,
+            
         ]);
         return redirect()->route('bookings.index')->with('success','Booking  added successfully');
     }
 
     public function edit($id)
     {
-        $booking = Booking::with('roomtype', 'user')->find($id);
-        $roomtypes = RoomType::get();
+        $booking = Booking::with('trip', 'user')->find($id);
+        $trips = Trip::get();
         $users = User::get();
-        return view('backend.bookings.edit', compact('booking', 'roomtypes', 'users'));
+        return view('backend.bookings.edit', compact('booking', 'trips', 'users'));
     }
 
     public function update(Request $request){
         $user_id = $request->user_id;
-        $roomtype_id = $request->roomtype_id;
+        $trip_id = $request->trip_id;
         $startdate = $request->startdate;
         $enddate = $request->enddate;
-        $status = $request->status;
+        
 
         Booking::where('id',$request->id)->update([
             'user_id' => $user_id,
-            'roomtype_id' => $roomtype_id,
+            'trip_id' => $trip_id,
             'start_date' => $startdate,
             'end_date' => $enddate,
-            'status' => $status,
         ]);
         return redirect()->route('bookings.index')->with('success','Booking  Updated successfully');
     }

@@ -11,7 +11,7 @@ class TripType extends Model
     use HasFactory;
     protected $fillable = ['triptype_name','triptype_status'];
 
-    public function trips()
+    public function trip()
     {
         return $this->hasOne(Trip::class);
     }

@@ -27,11 +27,10 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
+                                <th scope="col">User </th>
+                                <th scope="col">Trip</th>
                                 <th scope="col">Start Date</th>
                                 <th scope="col">End Date</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">User </th>
-                                <th scope="col">Room Type</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -39,11 +38,10 @@
                             @foreach ($bookings as $booking )
                             <tr>
                                 <td>{{$booking->id}}</td>
+                                <td>{{$booking->user->name}}</td>
+                                <td>{{$booking->trip->trip_name}}</td>
                                 <td>{{$booking->start_date}}</td>
                                 <td>{{$booking->end_date}}</td>
-                                <td>{{$booking->status}}</td>
-                                <td>{{$booking->user->name}}</td>
-                                <td>{{$booking->roomtype->room_type}}</td>
                                 <td>
                                     <a href="{{ route('booking.edit',$booking->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                     <a onclick="return confirm('are you sure?')" href="{{ route('booking.delete',$booking->id) }}" class="btn btn-sm btn-danger">Delete</a>

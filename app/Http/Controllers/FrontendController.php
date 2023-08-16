@@ -26,16 +26,10 @@ class FrontendController extends Controller
     public function about_us(){
         return view('frontend.aboutus');
     }
-    public function destination(){
-        return view('frontend.destination');
+    public function contact_us(){
+        return view('frontend.contact');
     }
-    public function trip(){
-        return view('frontend.trip');
-    }
-    public function hotel(){
-        return view('frontend.hotel');
-    }
-
+    
     public function city_trips($city_id){
         $trips = Trip::where('city_id',$city_id)->get();
         return view('frontend.city_trips',compact('trips'));
@@ -44,5 +38,30 @@ class FrontendController extends Controller
     public function trip_detail($trip_id){
         $trip = Trip::where('id',$trip_id)->first();
         return view('frontend.trip_detail',compact('trip'));
+    }
+
+    public function hotel_detail($hotel_id){
+        $hotel = Hotel::where('id',$hotel_id)->first();
+        return view('frontend.hotel_detail', compact('hotel'));
+    }
+
+    public function all_hotel(){
+        $hotels = Hotel::get();
+        return view('frontend.all_hotel', compact('hotels'));
+    }
+
+    public function all_city(){
+        $cities = City::get();
+        return view('frontend.all_cities', compact('cities'));
+    }
+
+    public function city_detail($city_id){
+        $city = City::where('id',$city_id)->first();
+        return view('frontend.city_detail', compact('city'));
+    }
+
+    public function all_trip(){
+        $trips = Trip::get();
+        return view('frontend.all_trips',compact('trips'));
     }
 }

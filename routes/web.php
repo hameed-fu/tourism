@@ -25,11 +25,15 @@ Route::get('/',[FrontendController::class,'index']);
 Route::get('/contact',[FrontendController::class,'contact']);
 // Route::get('/menuhome',[FrontendController::class, 'menu_home'])->name('frontend.menuhome');
 Route::get('/aboutus',[FrontendController::class, 'about_us'])->name('frontend.aboutus');
+Route::get('/contactus',[FrontendController::class, 'contact_us'])->name('contact.us');
 Route::get('frontend/destination',[FrontendController::class, 'destination'])->name('frontend.destination');
-Route::get('frontend/trip',[FrontendController::class, 'trip'])->name('frontend.trip');
-Route::get('frontend/hotel',[FrontendController::class, 'hotel'])->name('frontend.hotel');
 Route::get('cities/trips/{city_id}',[FrontendController::class, 'city_trips'])->name('city.trips');
 Route::get('trip/detail/{trip_id}',[FrontendController::class, 'trip_detail'])->name('trip.detail');
+Route::get('hotel/detail/{hotel_id}',[FrontendController::class, 'hotel_detail'])->name('hotel.detail');
+Route::get('all/hotels/',[FrontendController::class, 'all_hotel'])->name('all.hotel');
+Route::get('all/cities/',[FrontendController::class, 'all_city'])->name('all.cities');
+Route::get('city/detail/{city_id}',[FrontendController::class, 'city_detail'])->name('city.detail');
+Route::get('all/trips/',[FrontendController::class, 'all_trip'])->name('all.trip');
 
 
 Route::middleware('auth')->group(function () {

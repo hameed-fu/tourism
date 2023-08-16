@@ -146,11 +146,11 @@
         </div>
         <div class="banner-breadcrum position-absolute top-50 mx-auto w-50 start-50 text-center translate-middle">
             <div class="breadcrumb-content text-center">
-                <h1 class="mb-0 white">Tour Single</h1>
+                <h1 class="mb-0 white">Distination</h1>
                 <nav aria-label="breadcrumb" class="d-block">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Tour Single One</li>
+                        <li class="breadcrumb-item active" aria-current="page">Desitination Single One</li>
                     </ul>
                 </nav>
             </div>
@@ -164,10 +164,10 @@
                         <div id="highlight">
                             <div class="single-full-title border-b mb-2 pb-2">
                                 <div class="single-title">
-                                    <h2 class="mb-1">{{ $trip->trip_name }}</h2>
+                                    <h2 class="mb-1">{{ $city->city_name }}</h2>
                                     <div class="rating-main d-md-flex align-items-center">
                                         <p class="mb-0 me-2"><i class="icon-location-pin"></i>
-                                            {{ $trip->city->city_name }}</p>
+                                            {{ $city->province->province_name }}</p>
                                         <div class="rating me-2">
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
@@ -180,63 +180,8 @@
                                 </div>
                             </div>
                             <div class="description-images mb-4">
-                                <img src="{{ asset('uploads/trips').'/'.$trip->trip_img }}" alt="" class="w-100 rounded">
+                                <img src="{{ asset('uploads/cities').'/'.$city->city_img }}" alt="" class="w-100 rounded">
                             </div>
-                            <div class="description mb-2">
-                                <h4>Description</h4>
-                                <p>{{ $trip->trip_description }}</p>
-                            </div>
-                            <div class="tour-includes mb-4">
-
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <th><i class="fa fa-clock-o pink mr-1" aria-hidden="true"></i>Day</th>
-                                            <th><i class="fa fa-group pink mr-1" aria-hidden="true"></i> Night Stay</th>
-                                            <th><i class="fa fa-group pink mr-1" aria-hidden="true"></i> Itenary</th>
-                                            <th><i class="fa fa-calendar pink mr-1" aria-hidden="true"></i> Spot</th>
-                                        </tr>
-                                        @foreach ($trip->tripfeatures as $feature)
-                                            <tr>
-                                                <td>{{ $feature->day }}</td>
-                                                <td>{{ $feature->itenary }}</td>
-                                                <td>{{ $feature->nightstay }}</td>
-                                                <td>{{ $feature->spot }}</td>
-
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-
-                        </div>
-
-
-
-                        <div id="single-comments" class="single-comments single-box mb-4">
-                            <h5 class="border-b pb-2 mb-2">Reviews</h5>
-                            @foreach ($trip->reviews as $review)
-                                <div class="comment-box">
-                                    <div class="comment-image">
-                                        <img src="images/reviewer/1.jpg" alt="image">
-                                    </div>
-                                    <div class="comment-content rounded">
-                                        <h5 class="mb-1">User name</h5>
-                                        <p class="comment-date">{{ $review->review_date }}</p>
-                                        <div class="comment-rate">
-                                            <div class="rating mar-right-15">
-                                                @for ($i = 1; $i <= $review->rating;$i++)
-                                                    <span class="fa fa-star checked"></span>
-                                                @endfor
-                                            </div>
-
-                                        </div>
-                                        <p class="comment">comment hereThe worst hotel everThe worst hotel everThe worst hotel everThe worst hotel everThe worst hotel everThe worst hotel ever</p>
-
-                                    </div>
-                                </div>
-                            @endforeach
-
                         </div>
 
 
@@ -246,5 +191,6 @@
             </div>
 
         </div>
+        
     </section>
 @endsection

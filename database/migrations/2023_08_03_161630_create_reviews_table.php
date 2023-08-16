@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->integer('rating');
             $table->date('review_date');
+            $table->text('comments')->nullable();
             $table->unsignedBigInteger('trip_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');

@@ -32,7 +32,6 @@
                                 <th scope="col">Start Date</th>
                                 <th scope="col">End Date</th>
                                 <th scope="col">Price</th>
-                                <th scope="col">Status</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">City </th>
                                 <th scope="col">Trip Type</th>
@@ -49,7 +48,6 @@
                                 <td>{{$trip->start_date}}</td>
                                 <td>{{$trip->end_date}}</td>
                                 <td>{{$trip->price}}</td>
-                                <td>{{$trip->status}}</td>
                                 <td>{{ Str::words($trip->trip_description, 50, '...') }}</td>
                                 <td>{{$trip->city->city_name }}</td>
                                 <td>{{ $trip->triptype->triptype_name }}</td>

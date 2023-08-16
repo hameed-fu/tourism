@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id','rating','review_date','trip_id'];
+    protected $fillable = ['user_id','rating','review_date','comments','trip_id'];
 
     public function user()
     {
@@ -17,6 +17,6 @@ class Review extends Model
 
     public function trip()
     {
-        return $this->belongsTo(Trip::class);
+        return $this->belongsTo(Trip::class,'trip_id','id');
     }
 }

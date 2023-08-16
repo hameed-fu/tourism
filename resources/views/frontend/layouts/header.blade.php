@@ -69,18 +69,24 @@
 								</li>
 								<li><a href="{{ route('frontend.aboutus') }}">About Us</a></li>
 								<li class="submenu dropdown">
-									<a href="{{ route('frontend.destination') }}" class="dropdown-toggle" data-toggle="dropdown" role="button"
+									<a href="{{ route('all.cities') }}" class="dropdown-toggle" data-toggle="dropdown" role="button"
 										aria-haspopup="true" aria-expanded="false">Destinations <i
 											class="icon-arrow-down" aria-hidden="true"></i></a>
 								</li>
 								<li class="submenu dropdown">
-									<a href="{{ route('frontend.trip') }}" class="dropdown-toggle" data-toggle="dropdown" role="button"
+									<a href="{{ route('all.trip') }}" class="dropdown-toggle" data-toggle="dropdown" role="button"
 										aria-haspopup="true" aria-expanded="false">Tours <i class="icon-arrow-down"
 											aria-hidden="true"></i></a>
 								</li>
 								<li class="submenu dropdown">
-									<a href="{{ route('frontend.hotel') }}" class="dropdown-toggle" data-toggle="dropdown" role="button"
+									<a href="{{ route('all.hotel') }}" class="dropdown-toggle" data-toggle="dropdown" role="button"
 										aria-haspopup="true" aria-expanded="false">Hotels <i class="icon-arrow-down"
+											aria-hidden="true"></i></a>
+
+								</li>
+								<li class="submenu dropdown">
+									<a href="{{ route('contact.us') }}" class="dropdown-toggle" data-toggle="dropdown" role="button"
+										aria-haspopup="true" aria-expanded="false">Contact Us <i class="icon-arrow-down"
 											aria-hidden="true"></i></a>
 
 								</li>

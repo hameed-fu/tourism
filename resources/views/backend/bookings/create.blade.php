@@ -20,10 +20,7 @@
                                 <label for="">End Date</label>
                                 <input type="date" class="form-control" name="enddate">
                             </div>
-                            <div class="form-group">
-                                <label for="">Status</label>
-                                <input type="text" class="form-control" name="status">
-                            </div>
+                    
                             <div class="form-group">
                                 <label for="">User</label>
                                 <select name="user_id" id="" class="form-control form-select">
@@ -34,11 +31,11 @@
                                 </select>
                             </div>
                             <div class="form-group ">
-                                <label for="">Room Type</label>
-                                <select name="roomtype_id" id="" class="form-control form-select">
+                                <label for="">Trip</label>
+                                <select name="trip_id" id="" class="form-control form-select">
                                     <option value="">Please Select</option>
-                                    @foreach ($roomtypes as $roomtype)
-                                        <option value="{{ $roomtype->id }}">{{ $roomtype->room_type}}</option>
+                                    @foreach ($trips as $trip)
+                                        <option value="{{ $trip->id }}">{{ $trip->trip_name}}</option>
                                     @endforeach
                                 </select>
                             </div>
