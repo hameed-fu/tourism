@@ -1,5 +1,59 @@
 @extends('frontend.layouts.master')
 @section('content')
+<style>
+    /* The Modal (background) */
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        padding-top: 100px;
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 60%;
+        border-radius: 10px;
+        /* height: 300px; */
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .text-green-600{
+        margin-top: 30px
+    }
+</style>
     <div class="banner trending overflow-hidden">
         <div class="section-shape section-shape1 top-inherit bottom-0"
             style="background-image: url({{ asset('frontend/images/shape8.png') }});">
@@ -186,14 +240,71 @@
                                 <h4>Description</h4>
                                 <p>{{ $trip->trip_description }}</p>
                             </div>
-                            
-                            
+
+                            @if (session()->has('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
                             <div class="tour-includes mb-4">
                                 @auth
                                 <div class="d-flex justify-content-end mb-2">
-                                    <a href="#" class="nir-btn white">Book Now</a>
-                                </div>  
+                                    <button class="nir-btn white" id="myBtn">Book Now</button>
+
+                                </div>
+
+                                <div id="myModal" class="modal">
+
+                                    <!-- Modal content -->
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <h3 class="-xl">Book Your Trip!</h3>
+
+                                        <form action="{{ route('booking.book') }}" method="post">
+                                            @csrf
+                                            <div class="form-group">
+                                                <label for="">Name</label>
+                                                <input type="text" class="form-control" readonly value="{{ auth()->user()->name }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Email</label>
+                                                <input type="text" class="form-control" readonly value="{{ auth()->user()->email }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Phone</label>
+                                                <input type="text" class="form-control" readonly value="{{ auth()->user()->user_contact }}">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="">Phone</label>
+                                                <input type="date" class="form-control" name="booking_date">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="">Trip</label>
+                                                <input type="text" class="form-control" readonly value="{{ $trip->trip_name }}">
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <input type="hidden" class="form-control" name="trip_id" value="{{ $trip->id }}">
+                                            </div>
+                                            <input type="submit" value="Submit" class="nir-btn white mt-3">
+                                        </form>
+                                    </div>
+
+                                </div>
                                 @endauth
+
+                                @guest
+                                    <div class="d-flex justify-content-end mb-2">
+                                        <a href="{{ route('login') }}" class="nir-btn white">Book Now</a>
+                                    </div>
+                                @endguest
+
+
+
+
                                 <table>
                                     <tbody>
                                         <tr>
@@ -253,4 +364,31 @@
 
         </div>
     </section>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 @endsection

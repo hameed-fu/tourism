@@ -89,3 +89,7 @@ Task#15
 4. Remove the start/end date from Trips on backend
 5. Show only booking date, user, trip and status on booking page on backend
 
+Task#16
+1. show bookings on booking history page on user side
+2. show bookings on admin side too
+

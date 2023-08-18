@@ -25,7 +25,7 @@ class User extends Authenticatable
         'gender',
         'user_contact',
         'user_address',
-        'user_role'
+        'user_role',
     ];
 
     public function booking()

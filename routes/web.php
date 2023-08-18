@@ -39,7 +39,7 @@ Route::get('booking/history', [FrontendController::class, 'booking_history'])->n
 Route::get('user/review', [FrontendController::class, 'user_review'])->name('user.review');
 
 Route::middleware(['auth'])->group(function () {
-
+    Route::post('booking/book', [FrontendController::class, 'save_booking'])->name('booking.book');
 });
 
 

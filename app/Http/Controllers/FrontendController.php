@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
-use App\Models\Hotel;
 use App\Models\Trip;
+use App\Models\Hotel;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -44,7 +45,7 @@ class FrontendController extends Controller
 
 
 
-    
+
     public function city_trips($city_id){
         $trips = Trip::where('city_id',$city_id)->get();
         return view('frontend.city_trips',compact('trips'));
@@ -78,5 +79,14 @@ class FrontendController extends Controller
     public function all_trip(){
         $trips = Trip::get();
         return view('frontend.all_trips',compact('trips'));
+    }
+
+    function save_booking(Request $request){
+        $booking = new Booking();
+        $booking->user_id = auth()->user()->id;
+        $booking->trip_id = $request->trip_id;
+        $booking->date = $request->booking_date;
+        $booking->save();
+        return redirect()->back()->with('success', 'Your trip booked successfully');
     }
 }
