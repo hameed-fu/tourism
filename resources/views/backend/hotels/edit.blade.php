@@ -54,7 +54,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Description</label>
-                            <textarea class="form-control" value="{{ $hotel->description }}" name="description" id="" cols="30" rows="5"></textarea>
+                            <textarea class="form-control" name="description" id="" cols="30" rows="5">{{$hotel->description}}</textarea>
 
                         </div>
                         <input type="hidden" name="id" value="{{ $hotel->id }}">

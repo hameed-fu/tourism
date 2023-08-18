@@ -146,11 +146,11 @@
         </div>
         <div class="banner-breadcrum position-absolute top-50 mx-auto w-50 start-50 text-center translate-middle">
             <div class="breadcrumb-content text-center">
-                <h1 class="mb-0 white">Hotel</h1>
+                <h1 class="mb-0 white">{{ $hotel->hotel_name }}</h1>
                 <nav aria-label="breadcrumb" class="d-block">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Hotel Single One</li>
+                        <li class="breadcrumb-item active" aria-current="page"> Hotel Single One</li>
                     </ul>
                 </nav>
             </div>

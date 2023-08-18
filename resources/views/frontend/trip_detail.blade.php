@@ -146,11 +146,11 @@
         </div>
         <div class="banner-breadcrum position-absolute top-50 mx-auto w-50 start-50 text-center translate-middle">
             <div class="breadcrumb-content text-center">
-                <h1 class="mb-0 white">Tour Single</h1>
+                <h1 class="mb-0 white">{{ $trip->trip_name }}</h1>
                 <nav aria-label="breadcrumb" class="d-block">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Tour Single One</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ $trip->trip_name }} Tour Single One</li>
                     </ul>
                 </nav>
             </div>
@@ -186,8 +186,14 @@
                                 <h4>Description</h4>
                                 <p>{{ $trip->trip_description }}</p>
                             </div>
+                            
+                            
                             <div class="tour-includes mb-4">
-
+                                @auth
+                                <div class="d-flex justify-content-end mb-2">
+                                    <a href="#" class="nir-btn white">Book Now</a>
+                                </div>  
+                                @endauth
                                 <table>
                                     <tbody>
                                         <tr>

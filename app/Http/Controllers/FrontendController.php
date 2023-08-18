@@ -29,6 +29,21 @@ class FrontendController extends Controller
     public function contact_us(){
         return view('frontend.contact');
     }
+
+    public function profile(){
+        return view('frontend.profile');
+    }
+
+    public function booking_history(){
+        return view('frontend.booking_history');
+    }
+
+    public function user_review(){
+        return view('frontend.user_review');
+    }
+
+
+
     
     public function city_trips($city_id){
         $trips = Trip::where('city_id',$city_id)->get();

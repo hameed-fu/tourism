@@ -38,7 +38,7 @@
                             class="trend-content d-flex align-items-center justify-content-between position-absolute bottom-0 p-4 w-100 z-index">
                             <div class="trend-content-title">
                                 <h6 class="mb-0 white">{{$city->province->province_name }}</h6>
-                                <h4 class="mb-0 white"><a href="{{ route('city.detail',$city->id) }}" >{{ $city->city_name }}</a></h4>
+                                <h4 class="mb-0 white"><a href="{{ route('city.trips',$city->id) }}" >{{ $city->city_name }}</a></h4>
                             </div>
                         </div>
                         <div class="color-overlay"></div>

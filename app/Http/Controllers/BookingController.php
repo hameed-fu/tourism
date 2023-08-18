@@ -32,12 +32,14 @@ class BookingController extends Controller
         $user_id = $request->user_id;
         $trip_id = $request->trip_id;
         $date = $request->date;
+        $status = $request->status;
 
 
         Booking::create([
             'user_id' => $user_id,
             'trip_id' => $trip_id,
-            'date' => $data,
+            'date' => $date,
+            'status' =>$status,
 
         ]);
         return redirect()->route('bookings.index')->with('success','Booking  added successfully');
@@ -55,12 +57,14 @@ class BookingController extends Controller
         $user_id = $request->user_id;
         $trip_id = $request->trip_id;
         $date = $request->date;
+        $status = $request->status;
 
 
         Booking::where('id',$request->id)->update([
             'user_id' => $user_id,
             'trip_id' => $trip_id,
             'date' => $date,
+            'status' =>$status,
         ]);
         return redirect()->route('bookings.index')->with('success','Booking  Updated successfully');
     }

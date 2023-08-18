@@ -34,7 +34,7 @@
                             <hr>
                             <div class="form-group">
                                 <label for="">Description</label>
-                                <textarea class="form-control" value="{{ $location->location_description }}" name="description" id="" cols="30" rows="5"></textarea>
+                                <textarea class="form-control"name="description" id="" cols="30" rows="5">{{$location->location_description}}</textarea>
 
                             </div>
                             <input type="hidden" name="id" value="{{ $location->id }}">

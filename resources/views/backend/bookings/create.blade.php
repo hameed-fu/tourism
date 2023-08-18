@@ -13,12 +13,12 @@
                         <form action="{{ route('booking.add') }}" method="post">
                             @csrf
                             <div class="form-group">
-                                <label for="">Start Date</label>
-                                <input type="date" class="form-control" name="startdate">
+                                <label for="">Date</label>
+                                <input type="date" class="form-control" name="date">
                             </div>
                             <div class="form-group">
-                                <label for="">End Date</label>
-                                <input type="date" class="form-control" name="enddate">
+                                <label for="">Status</label>
+                                <input type="text" class="form-control" name="status">
                             </div>
                     
                             <div class="form-group">

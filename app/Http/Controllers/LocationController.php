@@ -11,7 +11,7 @@ use App\Models\City;
 class LocationController extends Controller
 {
     public function Location(){
-        $locations = Location::get();
+        $locations = Location::with('city')->get();
         return view('backend.locations.index',compact('locations'));
     }
 

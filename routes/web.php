@@ -34,6 +34,9 @@ Route::get('all/hotels/',[FrontendController::class, 'all_hotel'])->name('all.ho
 Route::get('all/cities/',[FrontendController::class, 'all_city'])->name('all.cities');
 Route::get('city/detail/{city_id}',[FrontendController::class, 'city_detail'])->name('city.detail');
 Route::get('all/trips/',[FrontendController::class, 'all_trip'])->name('all.trip');
+Route::get('user/profile', [FrontendController::class, 'profile'])->name('user.profile');
+Route::get('booking/history', [FrontendController::class, 'booking_history'])->name('booking.history');
+Route::get('user/review', [FrontendController::class, 'user_review'])->name('user.review');
 
 Route::middleware(['auth'])->group(function () {
 

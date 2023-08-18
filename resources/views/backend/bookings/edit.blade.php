@@ -13,12 +13,12 @@
                         <form action="{{ route('booking.update') }}" method="post">
                             @csrf
                             <div class="form-group">
-                                <label for="">Start Date</label>
-                                <input type="date" class="form-control" name="startdate" value="{{ $booking->start_date }}">
+                                <label for="">Date</label>
+                                <input type="date" class="form-control" name="date" value="{{ $booking->date }}">
                             </div>
                             <div class="form-group">
-                                <label for="">End Date</label>
-                                <input type="date" class="form-control" name="enddate" value="{{ $booking->end_date }}">
+                                <label for="">Status</label>
+                                <input type="text" class="form-control" name="status" value="{{ $booking->status }}">
                             </div>
                             
                             <div class="form-group">

@@ -97,8 +97,7 @@
 
                                 </li>
 
-                                <li class="search-main"><a href="#search1" class="mt_search"><i
-                                            class="fa fa-search"></i></a></li>
+    
                             </ul>
                         </div>
                         <div class="register-login d-flex align-items-center">
@@ -110,11 +109,11 @@
                                 <ul class="nav navbar-nav">
                                     <li class="submenu dropdown">
                                         {{ auth()->user()->name }}
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <i class="fa fa-caret-down"></i></a>
+                                        <a href="{{ route('user.profile') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <i class="fa fa-caret-down"></i></a>
                                         <ul class="dropdown-menu">
                                             <li class="submenu dropdown">
-                                                <a href="#" class="dropdown-toggle"   aria-haspopup="true" aria-expanded="false">Booking history</a>
-                                                <a href="#" class="dropdown-toggle"   aria-haspopup="true" aria-expanded="false">Review</a>
+                                                <a href="{{ route('booking.history') }}" class="dropdown-toggle"   aria-haspopup="true" aria-expanded="false">Booking history</a>
+                                                <a href="{{ route('user.review') }}" class="dropdown-toggle"   aria-haspopup="true" aria-expanded="false">Review</a>
                                                 <a href="{{ route('logout') }}" class="dropdown-toggle"   aria-haspopup="true" aria-expanded="false">Logout</a>
                                             </li>
 
