@@ -156,6 +156,7 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::post('booking/add',[BookingController::class,'store' ])->name('booking.add');
     Route::get('booking/edit/{id}',[BookingController::class,'edit' ])->name('booking.edit');
     Route::post('booking/update',[BookingController::class,'update' ])->name('booking.update');
+    Route::get('booking/statuc/{id}/{status}',[BookingController::class,'change_status' ])->name('booking.status');
 
 
     Route::get('review',[ReviewController::class,'Review' ])->name('reviews.index');

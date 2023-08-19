@@ -68,4 +68,12 @@ class BookingController extends Controller
         ]);
         return redirect()->route('bookings.index')->with('success','Booking  Updated successfully');
     }
+
+    public function change_status($id,$status){
+         
+        Booking::where('id',$id)->update([
+            'status' => $status,
+        ]);
+        return redirect()->route('bookings.index')->with('success', "Status Changed successfully");
+    }
 }

@@ -93,3 +93,7 @@ Task#16
 1. show bookings on booking history page on user side
 2. show bookings on admin side too
 
+Table#17
+1. Create a form in reveiw page [trips in dropdwon, 5 stars and comment]
+2. create profile page for user, and  put [name, email, phone, image]
+3. same for admin side too
