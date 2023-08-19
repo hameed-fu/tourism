@@ -7,6 +7,7 @@ use App\Models\Trip;
 use App\Models\Hotel;
 use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FrontendController extends Controller
 {
@@ -36,7 +37,10 @@ class FrontendController extends Controller
     }
 
     public function booking_history(){
-        return view('frontend.booking_history');
+        $authUserId = Auth::id();
+        $bookings = Booking::with(['user', 'trip'])->where('user_id', $authUserId)->get();
+        
+        return view('frontend.booking_history',compact('bookings'));
     }
 
     public function user_review(){

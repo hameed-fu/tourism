@@ -21,17 +21,38 @@
     </div>
     <div class="dot-overlay"></div>
 </section>
-<table>
-    <tbody>
-        <tr>
-            <th><i class="fa fa-clock-o pink mr-1" aria-hidden="true"></i>Col 1</th>
-            <th><i class="fa fa-group pink mr-1" aria-hidden="true"></i> Col 2</th>
-            <th><i class="fa fa-group pink mr-1" aria-hidden="true"></i> Col 3</th>
-            <th><i class="fa fa-calendar pink mr-1" aria-hidden="true"></i> Col 4</th>
-        </tr>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Phone N0</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Trip Name</th>
+                        <th scope="col">Trip Date</th>
+                        <th scope="col">Booking Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($bookings as $key => $booking)
+                    <tr>
+                        <td>{{ $booking->user->name }}</td>
+                        <td>{{ $booking->user->user_contact }}</td>
+                        <td>{{ $booking->user->email }}</td>
+                        <td>{{ $booking->trip->trip_name }}</td>
+                        <td>{{ $booking->trip->start_date }}</td>
+                        <td>{{ $booking->status }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-    </tbody>
-</table>
+
 
 
 @endsection
