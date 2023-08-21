@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use App\Models\Trip;
 use App\Models\Hotel;
+use App\Models\Review;
 use App\Models\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User;
@@ -42,13 +43,21 @@ class FrontendController extends Controller
     public function booking_history(){
         $authUserId = Auth::id();
         $bookings = Booking::with(['user', 'trip'])->where('user_id', $authUserId)->get();
+
         return view('frontend.booking_history',compact('bookings'));
     }
 
     public function user_review(){
         $authUserId = Auth::id();
-        $bookings = Booking::with(['user', 'trip'])->where('user_id', $authUserId)->get();
-        
+        // $bookings = Booking::with(['user', 'trip'])->where('user_id', $authUserId)->get();
+        $bookings = Booking::with('trip')->whereNotIn('id', function ($query) {
+                $query->select('trip_id')
+                  ->from('reviews')
+                  ->where('user_id', '!=' ,auth()->user()->id);
+
+        })
+        ->get();
+        // dd($bookings);
         return view('frontend.user_review',compact('bookings'));
     }
 
@@ -97,5 +106,17 @@ class FrontendController extends Controller
         $booking->date = $request->booking_date;
         $booking->save();
         return redirect()->back()->with('success', 'Your trip booked successfully');
+    }
+
+    function add_review(Request $request){
+        $review = new Review();
+        $review->user_id = auth()->user()->id;
+        $review->trip_id = $request->trip_id;
+        $review->review_date = date('Y-m-d');
+        $review->comments = $request->comment;
+        $review->rating = $request->rating;
+        $review->save();
+        return response()->json(['message' => 'Review added successfully']);
+        return redirect()->back()->with('success', 'Your review added successfully');
     }
 }

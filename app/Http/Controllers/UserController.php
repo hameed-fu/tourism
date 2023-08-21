@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function User()
     {
-        $users = User::get();
+        $users = User::where('id','!=',auth()->user()->id)->get();
         return view('backend.users.index', compact('users'));
     }
 

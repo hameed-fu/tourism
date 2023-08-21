@@ -13,7 +13,7 @@ use App\Http\Controllers\Controller;
 class BookingController extends Controller
 {
     public function Booking(){
-        $bookings = Booking::get();
+        $bookings = Booking::orderBy('id','desc')->get();
         return view('backend.bookings.index',compact('bookings'));
     }
 
@@ -70,7 +70,7 @@ class BookingController extends Controller
     }
 
     public function change_status($id,$status){
-         
+
         Booking::where('id',$id)->update([
             'status' => $status,
         ]);
