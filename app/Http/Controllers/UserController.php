@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -97,5 +98,11 @@ class UserController extends Controller
         ]);
 
         return redirect()->route('users.index')->with('success', 'User updated successfully');
+    }
+
+    public function admin(){
+        $authUserId = Auth::id();
+        $users = User::where('id',$authUserId)->get();
+        return view('backend.users.admin',compact('users'));
     }
 }

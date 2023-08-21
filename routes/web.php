@@ -67,6 +67,7 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::post('user/add',[UserController::class,'store' ])->name('user.add');
     Route::get('user/edit/{id}',[UserController::class,'edit' ])->name('user.edit');
     Route::post('user/update',[UserController::class,'update' ])->name('user.update');
+    Route::get('admin',[UserController::class, 'admin'])->name('user.admin');
 
 
 

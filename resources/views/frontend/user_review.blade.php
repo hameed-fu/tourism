@@ -18,16 +18,31 @@
     </div>
     <div class="dot-overlay"></div>
 </section>
- <table>
-    <tbody>
-        <tr>
-            <th><i class="fa fa-clock-o pink mr-1" aria-hidden="true"></i>Col 1</th>
-            <th><i class="fa fa-group pink mr-1" aria-hidden="true"></i> Col 2</th>
-            <th><i class="fa fa-group pink mr-1" aria-hidden="true"></i> Col 3</th>
-            <th><i class="fa fa-calendar pink mr-1" aria-hidden="true"></i> Col 4</th>
-        </tr>
-        
-    </tbody>
-</table>
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <form action="" method="">
+        <h1 class="text-cnter">Review Your Trips</h1>
+        <div class="mb-3">
+           <div class="mb-3">
+             <label for="" class="form-label">Comments</label>
+             <textarea class="form-control" name="comment" id="" rows="3"></textarea>
+           </div>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">5 stars</label>
+            <input type="number" class="form-control" name="star" id="">
+        </div>
+        <div class="form-group">
+            <label for="">Trips</label>
+            <select name="trip_id" id="" class="form-control form-select">
+                <option value="">Please Select</option>
+                @foreach ($bookings as $booking)
+                    <option value="{{ $booking->trip->id }}">{{ $booking->trip->trip_name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <button class="btn btn-primary mt-3">Save</button>
+    </form>
+</div>
+
 
  @endsection
