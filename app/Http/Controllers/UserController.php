@@ -105,4 +105,51 @@ class UserController extends Controller
         $users = User::where('id',$authUserId)->get();
         return view('backend.users.admin',compact('users'));
     }
+
+    public function my_profile(){
+        $authUserId = Auth::id();
+        $user = User::where('id',$authUserId)->first();
+        return view('backend.users.profile',compact('user'));
+    }
+
+    public function edit_profile(Request $request){
+         $name = $request->name;
+         $email = $request->email;
+         
+
+         $file_name = null; 
+
+        $user = User::find(Auth::id());
+        if ($request->hasFile('img')) {
+            $img = $request->file('img');
+            $file_name = $img->getClientOriginalName(); 
+            $img->move(public_path('uploads/users'), $file_name);
+        }else{
+            $file_name = $user->user_img;
+        }
+
+         User::where('id',Auth::id())->update([
+            'name' => $name,
+            'email' => $email,
+            'user_img' => $file_name, 
+            'password' => auth()->user()->password,
+            'gender' => auth()->user()->gender,
+            'user_contact' => auth()->user()->user_contact,
+            'user_address' => auth()->user()->user_address,
+            'user_role' => auth()->user()->user_role,
+        ]);
+        return view('backend.dashboard');
+    }
+
+    public function edit_password(Request $request){
+        dd(auth()->user()->password. "...".Hash::make($request->old_password));
+
+            if(Hash::make($request->old_password) === auth()->User()->password){
+                dd("hi");
+
+            }
+            else{
+                dd('no');
+            }
+    }
 }

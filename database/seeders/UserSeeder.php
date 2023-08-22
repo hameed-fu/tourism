@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
                 'name' => 'admin',
                 'email'=> 'admin@gmail.com',
                 'user_img' =>'ali.jpg',
-                'password'=> Hash::make('12345678'),
+                'password'=> '12345678',
                 'user_address'=>'Shankar',
                 'user_role'=>'admin',
             ],
@@ -31,6 +31,7 @@ class UserSeeder extends Seeder
                 'user_img' =>'hammad.jpg',
                 'password'=>'hammad123',
                 'user_address'=>'ghulamo',
+                'user_role'=>'admin',
             ],
             [
                 'name' => 'Saud',

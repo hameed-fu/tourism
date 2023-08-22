@@ -123,6 +123,14 @@
                 </li>
 
                 <li class="nav-item">
+                    <a href="{{ route('User.Profile') }}"
+                        class="nav-link {{ request()->is('admin/review') || request()->is('admin/review/*') ? 'active' : '' }}">
+                        <i class="nav-icon fa fa-table"></i>
+                        <p>My profile </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="{{ route('logout') }}"
                         class="nav-link {{ request()->is('admin/review') || request()->is('admin/review/*') ? 'active' : '' }}">
                         <i class="nav-icon fa fa-table"></i>

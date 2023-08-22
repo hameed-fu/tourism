@@ -69,6 +69,10 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function () {
     Route::get('user/edit/{id}',[UserController::class,'edit' ])->name('user.edit');
     Route::post('user/update',[UserController::class,'update' ])->name('user.update');
     Route::get('admin',[UserController::class, 'admin'])->name('user.admin');
+    Route::get('profile',[UserController::class, 'my_profile'])->name('User.Profile');
+    Route::post('profile/edit',[UserController::class, 'edit_profile'])->name('profile.edit');
+    Route::post('password/edit',[UserController::class, 'edit_password'])->name('edit.password');
+
 
 
 

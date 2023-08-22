@@ -50,13 +50,22 @@ class FrontendController extends Controller
     public function user_review(){
         $authUserId = Auth::id();
         // $bookings = Booking::with(['user', 'trip'])->where('user_id', $authUserId)->get();
-        $bookings = Booking::with('trip')->whereNotIn('id', function ($query) {
-                $query->select('trip_id')
-                  ->from('reviews')
-                  ->where('user_id', '!=' ,auth()->user()->id);
+        // $bookings = Booking::with('trip')->whereNotIn('id', function ($query) {
+        //         $query->select('trip_id')
+        //           ->from('reviews')
+        //           ->where('user_id', '!=' ,auth()->user()->id);
 
+        // })
+        // ->get();
+
+        $bookings = Booking::with('trip')
+        ->whereDoesntHave('trip.reviews', function ($query) {
+            $query->where('user_id', auth()->user()->id);
         })
+        ->where('user_id', auth()->user()->id)
         ->get();
+    
+
         // dd($bookings);
         return view('frontend.user_review',compact('bookings'));
     }
