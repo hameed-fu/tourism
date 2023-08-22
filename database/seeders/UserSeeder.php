@@ -15,13 +15,13 @@ class UserSeeder extends Seeder
     public function run(): void
     {
 
-        
+
         $arr = [
             [
                 'name' => 'admin',
                 'email'=> 'admin@gmail.com',
                 'user_img' =>'ali.jpg',
-                'password'=> '12345678',
+                'password'=> Hash::make('12345678'),
                 'user_address'=>'Shankar',
                 'user_role'=>'admin',
             ],

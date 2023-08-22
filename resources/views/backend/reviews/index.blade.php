@@ -32,13 +32,19 @@
                                 <th scope="col">comments</th>
                                 <th scope="col">User</th>
                                 <th scope="col">Trip</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($reviews as $review )
                             <tr>
                                 <td>{{$review->id}}</td>
-                                <td>{{$review->rating}}</td>
+                                <td>
+                                    {{ $review->rating }}
+                                    @for ($i=1; $i<=$review->rating; $i++)
+                                        <i class="fa fa-star text-warning"></i>
+                                    @endfor
+                                </td>
                                 <td>{{$review->review_date}}</td>
                                 <td>{{$review->comments}}</td>
                                 <td>{{ $review->user->name }}</td>

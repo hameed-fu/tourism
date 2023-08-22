@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -115,14 +116,14 @@ class UserController extends Controller
     public function edit_profile(Request $request){
          $name = $request->name;
          $email = $request->email;
-         
 
-         $file_name = null; 
+
+         $file_name = null;
 
         $user = User::find(Auth::id());
         if ($request->hasFile('img')) {
             $img = $request->file('img');
-            $file_name = $img->getClientOriginalName(); 
+            $file_name = $img->getClientOriginalName();
             $img->move(public_path('uploads/users'), $file_name);
         }else{
             $file_name = $user->user_img;
@@ -131,25 +132,22 @@ class UserController extends Controller
          User::where('id',Auth::id())->update([
             'name' => $name,
             'email' => $email,
-            'user_img' => $file_name, 
-            'password' => auth()->user()->password,
-            'gender' => auth()->user()->gender,
-            'user_contact' => auth()->user()->user_contact,
-            'user_address' => auth()->user()->user_address,
-            'user_role' => auth()->user()->user_role,
+            'user_img' => $file_name
         ]);
-        return view('backend.dashboard');
+        return redirect()->back()->with('success','Profile updated');
     }
 
     public function edit_password(Request $request){
-        dd(auth()->user()->password. "...".Hash::make($request->old_password));
 
-            if(Hash::make($request->old_password) === auth()->User()->password){
-                dd("hi");
+        $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'new_password' => ['required'],
+            'new_confirm_password' => ['same:new_password'],
+        ]);
+        // Hash::check(Hash::make($request->current_password), auth()->user()->password);
+        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+        return redirect()->back()->with('success', 'Password updated successfully');
+        dd('Password change successfully.');
 
-            }
-            else{
-                dd('no');
-            }
     }
 }

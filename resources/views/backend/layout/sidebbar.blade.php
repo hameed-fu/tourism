@@ -22,7 +22,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('dashboard') }}" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -33,7 +33,7 @@
                 <li class="nav-item">
                     <a href="{{ route('users.index') }}"
                         class="nav-link {{ request()->is('admin/user') || request()->is('admin/user/*') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-table"></i>
+                        <i class="nav-icon fa fa-users"></i>
                         <p>Users</p>
                     </a>
                 </li>
@@ -68,7 +68,7 @@
                 <li class="nav-item">
                     <a href="{{ route('trips.index') }}"
                         class="nav-link {{ request()->is('admin/trip') || request()->is('admin/trip/*') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-table"></i>
+                        <i class="nav-icon fa fa-bus"></i>
                         <p>Trips </p>
                     </a>
                 </li>
@@ -96,7 +96,7 @@
                 <li class="nav-item">
                     <a href="{{ route('rooms.index') }}"
                         class="nav-link {{ request()->is('admin/room') || request()->is('admin/room/*') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-table"></i>
+                        <i class="nav-icon fa fa-home"></i>
                         <p>Room </p>
                     </a>
                 </li>
@@ -117,7 +117,7 @@
                 <li class="nav-item">
                     <a href="{{ route('reviews.index') }}"
                         class="nav-link {{ request()->is('admin/review') || request()->is('admin/review/*') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-table"></i>
+                        <i class="nav-icon fa fa-star"></i>
                         <p>Reviews </p>
                     </a>
                 </li>
