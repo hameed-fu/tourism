@@ -37,31 +37,24 @@
                         <p>Users</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('provinces.index') }}"
                         class="nav-link {{ request()->is('admin/province') || request()->is('admin/province/*') ? 'active' : '' }}">
                         <i class="nav-icon fa fa-table"></i>
                         <p>Provinces</p>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="{{ route('cities.index') }}"
                         class="nav-link {{ request()->is('admin/city') || request()->is('admin/city/*') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-table"></i>
+                        <i class="nav-icon fa fa-building"></i>
                         <p>Cities </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('locations.index') }}"
-                        class="nav-link {{ request()->is('admin/location') || request()->is('admin/location/*') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-table"></i>
-                        <p>Locations </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('hotels.index') }}"
                         class="nav-link {{ request()->is('admin/hotel') || request()->is('admin/hotel/*') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-table"></i>
+                        <i class="nav-icon fa fa-bed"></i>
                         <p>Hotels </p>
                     </a>
                 </li>
@@ -75,21 +68,15 @@
                 <li class="nav-item">
                     <a href="{{ route('triptypes.index') }}"
                         class="nav-link {{ request()->is('admin/triptype') || request()->is('admin/triptype/*') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-table"></i>
+                        <i class="nav-icon fa fa-bus"></i>
                         <p>Trip Types </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('tripfeatures.index') }}"
-                        class="nav-link {{ request()->is('admin/tripfeature') || request()->is('admin/tripfeature/*') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-table"></i>
-                        <p>Trip Features </p>
-                    </a>
-                </li>
+                
                 <li class="nav-item">
                     <a href="{{ route('transports.index') }}"
                         class="nav-link {{ request()->is('admin/transport') || request()->is('admin/transport/*') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-table"></i>
+                        <i class="nav-icon fa fa-car"></i>
                         <p>Transport </p>
                     </a>
                 </li>
@@ -103,14 +90,14 @@
                 <li class="nav-item">
                     <a href="{{ route('roomtypes.index') }}"
                         class="nav-link {{ request()->is('admin/roomtype') || request()->is('admin/roomtype/*') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-table"></i>
+                        <i class="nav-icon fa fa-home"></i>
                         <p>Room Type </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('bookings.index') }}"
                         class="nav-link {{ request()->is('admin/booking') || request()->is('admin/booking/*') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-table"></i>
+                        <i class="nav-icon fas fa-calendar"></i>
                         <p>Trip Booking </p>
                     </a>
                 </li>
@@ -124,16 +111,16 @@
 
                 <li class="nav-item">
                     <a href="{{ route('User.Profile') }}"
-                        class="nav-link {{ request()->is('admin/review') || request()->is('admin/review/*') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-table"></i>
+                        class="nav-link {{ request()->is('admin/profile') || request()->is('admin/profile/*') ? 'active' : '' }}">
+                        <i class="nav-icon fa fa-user"></i>
                         <p>My profile </p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="{{ route('logout') }}"
-                        class="nav-link {{ request()->is('admin/review') || request()->is('admin/review/*') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-table"></i>
+                        class="nav-link {{ request()->is('logout') || request()->is('logout') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>Log Out </p>
                     </a>
                 </li>

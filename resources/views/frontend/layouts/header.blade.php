@@ -8,7 +8,7 @@
     <title>Travelin - Travel Tour Booking HTML Templates</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/images/favicon.png') }}">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="{{ asset('frontend/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
 
     <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet" type="text/css">

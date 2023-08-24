@@ -60,10 +60,7 @@ class FrontendController extends Controller
 
         $bookings = Booking::with('trip')
         ->whereDoesntHave('trip.reviews', function ($query) {
-            $query->where('user_id', auth()->user()->id);
-        })
-        ->where('user_id', auth()->user()->id)
-        ->get();
+            $query->where('user_id', auth()->user()->id);})->where('user_id', auth()->user()->id)->get();
     
 
         // dd($bookings);
@@ -127,5 +124,37 @@ class FrontendController extends Controller
         $review->save();
         return response()->json(['message' => 'Review added successfully']);
         return redirect()->back()->with('success', 'Your review added successfully');
+    }
+
+    public function update_profile(Request $request){
+        $user = User::where('id', $request->id)->first();
+        return view('frontend.profile_edit', compact('user'));
+    }
+
+    public function change_profile( Request $request)
+    {
+        dd($request);
+        $name = $request->name;
+         $email = $request->email;
+
+
+         $file_name = null;
+
+        $user = User::find(Auth::id());
+        if ($request->hasFile('img')) {
+            $img = $request->file('img');
+            $file_name = $img->getClientOriginalName();
+            $img->move(public_path('uploads/users'), $file_name);
+        }else{
+            $file_name = $user->user_img;
+        }
+
+         User::where('id',Auth::id())->update([
+            'name' => $name,
+            'email' => $email,
+            'user_img' => $file_name
+        ]);
+        return redirect()->back()->with('success','Profile updated');
+    
     }
 }

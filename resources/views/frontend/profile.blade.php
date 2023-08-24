@@ -32,6 +32,7 @@
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Phone</th>
+                        <th scope="col">Update</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,6 +42,9 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->user_contact }}</td>
+                            <td>
+                                <a href="{{ route('update.profile',$user->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

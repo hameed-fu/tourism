@@ -41,6 +41,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('booking/history', [FrontendController::class, 'booking_history'])->name('booking.history');
     Route::get('user/review', [FrontendController::class, 'user_review'])->name('user.review');
     Route::post('user/review/add', [FrontendController::class, 'add_review'])->name('feeback.store');
+    Route::get('user/update/profile/{id}', [FrontendController::class, 'update_profile'])->name('update.profile');
+    Route::post('change/profile', [FrontendController::class, 'change_profile'])->name('change.profile');
 });
 
 

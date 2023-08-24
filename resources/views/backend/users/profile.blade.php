@@ -43,30 +43,38 @@
             </div>
             <!-- /.col -->
             <div class="col-md-6 mt-3">
-                <div class="card-header bg-primary mt-3 my-text-container" style="text-align: left;">
-                    <h5>Change Password</h5>
-                </div>
-                <div class="form-group">
-                    <form action="{{ route('edit.password') }}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <div class="mb-3 mt-4">
-                            <label for="" class="form-label">Old Password</label>
-                            <input type="password" class="form-control" name="current_password" id="">
-                        </div>
-                        <div class="mb-3 mt-4">
-                            <label for="" class="form-label">New Password</label>
-                            <input type="password" class="form-control" name="new_password" id="">
-                        </div>
-                        <div class="mb-3 mt-4">
-                            <label for="" class="form-label">Retype New Password</label>
-                            <input type="password" class="form-control" name="new_confirm_password" id="">
-                        </div>
+                <div class="card">
+                    <div class="card-header bg-primary my-text-container" style="text-align: left;">
+                        <h5>Change Password</h5>
+                    </div>
+                    <div class="card-body">
 
-                        <button class="btn btn-primary">Submit</button>
-                    </form>
+
+                        <div class="form-group">
+                            <form action="{{ route('edit.password') }}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                <div class="mb-3 mt-4">
+                                    <label for="" class="form-label">Old Password</label>
+                                    <input type="password" class="form-control" name="current_password" id="">
+                                </div>
+                                <div class="mb-3 mt-4">
+                                    <label for="" class="form-label">New Password</label>
+                                    <input type="password" class="form-control" name="new_password" id="">
+                                </div>
+                                <div class="mb-3 mt-4">
+                                    <label for="" class="form-label">Retype New Password</label>
+                                    <input type="password" class="form-control" name="new_confirm_password" id="">
+                                </div>
+        
+                                <button class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
 
             </div>
+
+            
             <!-- /.col -->
         </div>
         <!-- /.row -->
